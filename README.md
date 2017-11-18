@@ -1,1 +1,49 @@
-### :point_right: This starter repo has moved to the [ionic-team/starters](https://github.com/ionic-team/starters/tree/master/ionic-angular/official/sidemenu) repo! :point_left:
+TICSOR
+=====================
+
+Application for the inclusion of the mute deaf population
+
+## Using this project
+
+You'll need the Ionic CLI with support for v3 apps:
+
+```bash
+$ npm install -g ionic
+```
+<br>
+
+Clone: 
+
+```bash
+git clone https://github.com/Zeroga98/Road.git && cd Road
+```
+
+<br>
+
+Create environments config files:
+
+```bash
+cp src/environments/env.example.ts src/environments/dev.ts
+```
+```bash
+cp src/environments/env.example.ts src/environments/prod.ts
+```
+_and replace the API_URL values there._
+
+<br>
+
+Install npm dependencies:
+
+```bash
+  npm install
+```
+
+<br>
+
+Then run:
+
+```bash
+$ ionic serve
+```
+
+More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/docs/v2/getting-started/) page.
