@@ -1,9 +1,20 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Temario</ion-title>
+      <ion-buttons end>
+          <button style="font-size: 1.8rem;"  ion-button color="light" (click)="goToProfile()">
+              <ion-icon name="heart"></ion-icon>
+          </button>
+          <button  style="font-size: 1.8rem;" ion-button color="light" (click)="btnSearch()">
+              <ion-icon name="search"></ion-icon>
+          </button>
+          <button   style="font-size: 1.8rem;" ion-button color="light" (click)="goToProfile()">
+              <ion-icon name="more"></ion-icon>
+          </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
