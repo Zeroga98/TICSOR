@@ -1,7 +1,10 @@
 <ion-menu [content]="content">
   <ion-header >
-    <ion-toolbar >
-      <ion-title>Menu</ion-title>
+    <ion-toolbar class="tol" style=" padding:0px" >
+      <img style="border-radius: 100%;width: 82px;margin: 17px 0 0 15px;" src="assets/imgs/laura.jpg" alt="">
+      <span style="color: #fff;font-size: 45px;font-weight: 500;float: right;top: 28px;right: 50px;position: relative;">27%</span>
+      <h1 style="color:#fff;padding-left:16px; margin-bottom:0" >Laura Marcela Osorio</h1>
+      <span style="color:#fff; padding-left:16px; margin-bottom:10px;display:block">laoso@hotmail.com</span>
     </ion-toolbar>
   </ion-header>
 
@@ -17,4 +20,3 @@
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav color="red" [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>
-

@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Temario</ion-title>
+    <ion-title>TicSor</ion-title>
       <ion-buttons end>
           <button style="font-size: 1.8rem;"  ion-button color="light" (click)="goToProfile()">
               <ion-icon name="heart"></ion-icon>
@@ -11,19 +11,104 @@
           <button  style="font-size: 1.8rem;" ion-button color="light" (click)="btnSearch()">
               <ion-icon name="search"></ion-icon>
           </button>
-          <button   style="font-size: 1.8rem;" ion-button color="light" (click)="goToProfile()">
+          <button   style="font-size: 1.8rem;" ion-button color="light" (click)="presentActionSheet()">
               <ion-icon name="more"></ion-icon>
           </button>
       </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content padding style="background: #E5E5E5;">
+    <ion-card style="background-color:#4CB976; border-radius:5px;box-shadow: 0 4px 34px rgba(0,0,0,0.25);">
+        <img  style="display:inline-block;vertical-align: middle; width:44%;    margin: 9px; border-radius:5px" src="assets/imgs/video.jpg"/>
+        <ion-card-content style="display: inline-block; width: 50%; vertical-align: middle;padding:0">
+          <ion-card-title style="color:#fff;font-weight:600;line-height: 0.6;">
+           Deletrendo
+            </ion-card-title>
+          <p style="color:#fff;font-weight:500">
+            Leccion 2
+          </p>
+          <p style="color:#fff;font-weight:500">
+              abecedario
+            </p>      
+                  <button ion-button icon-left clear small>
+                    <ion-icon style="font-size:26px; color:#fff; padding:0" name="heart"></ion-icon>
+                  </button>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+                  <button ion-button icon-left clear small>
+                    <ion-icon style="font-size:26px; color:#fff; padding:0" name="ios-add-circle"></ion-icon>
+                  </button>
+                  <button ion-button icon-left clear small style=" float:right">
+                      <ion-icon style="font-size:26px; color:#fff; padding:0;" name="ios-more"></ion-icon>
+                    </button>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+        </ion-card-content>
+        
+        
+      </ion-card >
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+                <ion-card style="background-color:#4CB976; border-radius:5px;box-shadow: 0 4px 34px rgba(0,0,0,0.25);">
+                   <div class="card-icon" ></div>
+                    <ion-card-content style="padding:0 16px">
+                      <ion-card-title style="color:#fff;    font-weight: 600; padding:0px 0 8px 0">
+                        Marcadores
+                        </ion-card-title>
+                    </ion-card-content>
+                  </ion-card>
+            </ion-col>
+            <ion-col>
+                <ion-card style="background-color:#4CB976; border-radius:5px;box-shadow: 0 4px 34px rgba(0,0,0,0.25);">
+                    <div class="card-icon2" ></div>
+                    <ion-card-content style="padding:0 16px">
+                      <ion-card-title style="color:#fff;    font-weight: 600; padding:0px 0 8px 0;font-size:1.5em">
+                        Comunicate
+                        </ion-card-title>
+                    </ion-card-content>
+                  </ion-card>
+            </ion-col>
+          </ion-row>
+       
+        </ion-grid>
+        <div class="divider">
+          <span>Noticias</span>
+        </div>
+        <ion-card>
+            
+              <ion-item>
+                <ion-avatar item-start>
+                  <img src="assets/imgs/descarga.jpeg">
+                </ion-avatar>
+                <p>Instituto nacional de sordos</p>
+              </ion-item>
+            
+              <img src="img/advance-card-bttf.png">
+            
+              <ion-card-content>
+                  <h2 style="font-weight:500; font-size:20px">Noticias sobre el lenguaje de señas</h2>
+                <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+              </ion-card-content>
+            
+              <ion-row>
+                <ion-col>
+                  <button ion-button icon-left clear small>
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <div>12 Likes</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button ion-button icon-left clear small>
+                    <ion-icon name="text"></ion-icon>
+                    <div>4 Comments</div>
+                  </button>
+                </ion-col>
+                <ion-col center text-center>
+                  <ion-note>
+                    11h ago
+                  </ion-note>
+                </ion-col>
+              </ion-row>
+            
+            </ion-card>
 </ion-content>

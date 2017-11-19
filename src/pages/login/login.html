@@ -8,11 +8,11 @@
             </ion-item>
         </ion-col>
     </ion-row>
-    <form (ngSubmit)="login()" #registerForm="ngForm">
+    <form  #registerForm="ngForm">
             <ion-row>
                     <ion-col class="signup-col">
                            
-                        <button ion-button class="submit-btn" color="red" full type="submit" >
+                        <button ion-button class="submit-btn" (click)="openPage()" color="red" full type="submit" >
                                 <img style="position:absolute; left:28px" width="38px" src="assets/imgs/google.png" />
                             Iniciar sesión con Google</button>
                     </ion-col>
