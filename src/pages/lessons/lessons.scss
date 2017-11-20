@@ -6,6 +6,13 @@ page-lessons {
     }
     .lesson-card {
         background: #f5f5f5;
+        margin-bottom: 1em;
+        &:nth-child(odd) {
+            margin-right: .5em;
+        }
+        &:nth-child(even) {
+            margin-left: .5em;
+        }
         .lesson-card-img {
             position: relative;
             .cover {
@@ -25,7 +32,7 @@ page-lessons {
         }
     }
     .lesson-card-subheader {
-        padding: 1em auto;
+        padding: .3em 0;
         text-align: center;
         display: grid;
         grid-template-columns: 1fr 1fr;
