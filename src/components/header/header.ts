@@ -3,7 +3,6 @@ import { App } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
 /* import { ProfilePage } from '../../pages/user/profile/profile'; */
 
-
 @Component({
   selector: 'header',
   templateUrl: 'header.html'

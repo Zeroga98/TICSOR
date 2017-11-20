@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 import { UserModel } from '../../models/user.model';
+import { LoginPage } from '../../pages/login/login';
 
 @Component({
   selector: 'page-home',
@@ -27,7 +28,8 @@ export class HomePage {
           text: 'Cerrar Sesion',
           role: 'Close Sesion',
           handler: () => {
-            console.log('Destructive clicked');
+            localStorage.clear();
+            this.navCtrl.setRoot(LoginPage);
           }
         }
       ]

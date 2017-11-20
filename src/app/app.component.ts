@@ -43,6 +43,9 @@ export class TICSOR {
   ngOnInit() {
       if(!this.user.isUser()){
         this.nav.setRoot(LoginPage);
+      } else {
+        this.user.get();
+        console.log(this.user);
       }
    }
 
