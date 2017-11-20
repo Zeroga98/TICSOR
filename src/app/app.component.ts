@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { NewsPage } from '../pages/news/news';
 import { LoginPage } from '../pages/login/login';
+import { LessonsPage } from '../pages/lessons/lessons';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,7 +15,7 @@ import { LoginPage } from '../pages/login/login';
 export class TICSOR {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = LessonsPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -24,7 +25,8 @@ export class TICSOR {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Noticias', component: NewsPage }
+      { title: 'Noticias', component: NewsPage },
+      { title: 'Temario', component: LessonsPage }
     ];
 
   }
