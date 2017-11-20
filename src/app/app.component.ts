@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -8,6 +8,7 @@ import { NewsPage } from '../pages/news/news';
 import { LoginPage } from '../pages/login/login';
 import { LessonsPage } from '../pages/lessons/lessons';
 import { TopicPage } from '../pages/topic/topic';
+import { UserModel } from '../models/user.model';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,12 +16,17 @@ import { TopicPage } from '../pages/topic/topic';
 export class TICSOR {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
-
+  rootPage: any = HomePage;
+  user: UserModel;
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events) {
     this.initializeApp();
+    this.user = new UserModel();
+
+    events.subscribe('user:exist', (user) => {
+      this.user = user;
+    });
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -31,6 +37,12 @@ export class TICSOR {
     ];
 
   }
+
+  ngOnInit() {
+      if(!this.user.isUser()){
+        this.nav.setRoot(LoginPage);
+      }
+   }
 
   initializeApp() {
     this.platform.ready().then(() => {

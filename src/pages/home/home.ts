@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
+import { UserModel } from '../../models/user.model';
 
 @Component({
   selector: 'page-home',
@@ -8,11 +9,16 @@ import { ActionSheetController } from 'ionic-angular';
 })
 export class HomePage {
 
+  public user: UserModel;
+
   constructor(
     public navCtrl: NavController,
     public actionSheetCtrl: ActionSheetController) {
 
+    this.user = new UserModel();
+    this.user.get();
   }
+
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'TicSor',

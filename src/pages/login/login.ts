@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
+import { NavController, Platform, Events } from 'ionic-angular';
 import { App, Nav } from 'ionic-angular';
 import { HomePage } from '../../pages/home/home';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { Network } from '@ionic-native/network';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
+import { UserModel } from '../../models/user.model';
 import { Oauth2Service } from '../../services/oauth2.service';
 
 @Component({
@@ -32,6 +33,7 @@ export class LoginPage {
     fullscreen: 'yes',//Windows only    
   };
   private wifi: boolean = true;
+  public user: UserModel;
 
   constructor(
     public navCtrl: NavController,
@@ -40,11 +42,14 @@ export class LoginPage {
     private platform: Platform,
     private oauth2Service: Oauth2Service,
     private network: Network,
-    private appBrowser: InAppBrowser
+    private appBrowser: InAppBrowser,
+    public events: Events
   ) {
   }
 
   ionViewDidLoad() {
+    this.user = new UserModel();
+
     this.network.onDisconnect().subscribe(() => {
       this.wifi = false;
     });
@@ -65,11 +70,10 @@ export class LoginPage {
         this.chairaLogin().then(success => {
           this.oauth2Service.getAccessToken(success.detail)
             .then(response => {
-              this.oauth2Service.getAccessToken(success.detail)
-                .then(response => {
-                  console.log(response);
-                    this.nav.setRoot(HomePage);
-                })
+              this.user.save(JSON.parse(response.scope)[0]);
+              this.events.publish('user:exist', this.user.get());
+
+              this.nav.setRoot(HomePage);
             })
             .catch(error => console.log(error))
 
