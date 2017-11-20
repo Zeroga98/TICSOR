@@ -4,8 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { NewsPage } from '../pages/news/news';
 import { LoginPage } from '../pages/login/login';
+import { LessonsPage } from '../pages/lessons/lessons';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,8 +19,9 @@ import { TICSOR } from './app.component';
   declarations: [
     TICSOR,
     HomePage,
-    ListPage,
-    LoginPage
+    NewsPage,
+    LoginPage,
+    LessonsPage
   ],
   imports: [
     BrowserModule,
@@ -29,8 +31,9 @@ import { TICSOR } from './app.component';
   entryComponents: [
     TICSOR,
     HomePage,
-    ListPage,
-    LoginPage
+    NewsPage,
+    LoginPage,
+    LessonsPage
   ],
   providers: [
     StatusBar,

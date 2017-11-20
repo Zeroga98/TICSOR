@@ -1,0 +1,35 @@
+page-news{
+    .divider{
+        display: block;
+        text-align: center;
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+        color: rgba(0, 0, 0, 0.38);
+    }
+    .thumbnail {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+      }
+      .thumbnail img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        -webkit-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+      }
+      .thumbnail img.portrait {
+        width: 90%;
+        height: auto;
+      }
+      .fuent{
+        display: inline-flex;
+        overflow-x: auto;
+      }
+      .fuent__thum{
+          text-align: center;
+      }
+}
