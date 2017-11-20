@@ -1,3 +1,25 @@
 page-topic {
-
+    .topic-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    .text-center {
+        text-align: center;
+    }
+    .card-md+ion-card {
+        margin-top: 10px!important;
+    }
+    ion-card {
+        img {
+            height: 6em;
+            width: 100%;
+        }
+        p {
+            font-size: smaller;
+        }
+    }
+    .card-content-md {
+        padding: 2px;
+    }
 }
