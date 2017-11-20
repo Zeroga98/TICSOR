@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { NewsPage } from '../pages/news/news';
 import { LoginPage } from '../pages/login/login';
 import { LessonsPage } from '../pages/lessons/lessons';
+import { TopicPage } from '../pages/topic/topic';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,7 +26,8 @@ export class TICSOR {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Noticias', component: NewsPage },
-      { title: 'Temario', component: LessonsPage }
+      { title: 'Temario', component: LessonsPage },
+      { title: 'Tema', component: TopicPage }
     ];
 
   }

@@ -11,6 +11,7 @@ import { NewsPage } from '../pages/news/news';
 import { LoginPage } from '../pages/login/login';
 import { LessonsPage } from '../pages/lessons/lessons';
 import { Oauth2Service } from '../services/oauth2.service';
+import { TopicPage } from '../pages/topic/topic';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +26,8 @@ import { TICSOR } from './app.component';
     HomePage,
     NewsPage,
     LoginPage,
-    LessonsPage
+    LessonsPage,
+    TopicPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { TICSOR } from './app.component';
     HomePage,
     NewsPage,
     LoginPage,
-    LessonsPage
+    LessonsPage,
+    TopicPage
   ],
   providers: [
     GooglePlus,
