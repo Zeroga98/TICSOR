@@ -1,0 +1,46 @@
+page-lessons {
+    .grid-lessons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .lesson-card {
+        background: #f5f5f5;
+        .lesson-card-img {
+            position: relative;
+            .cover {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                background: rgba(0, 0, 0, 0.5);
+            }
+            h1 {
+                position: absolute;
+                color: #f5f5f5;
+                width: 100%;
+                text-align: center;
+                bottom: .2em;
+            }
+        }
+    }
+    .lesson-card-subheader {
+        text-align: center;
+        .lesson-card-advance {
+            border-radius: 50%;
+            width: 3em;
+            height: 3em;
+            background: red;
+        }
+        .lesson-card-test {
+            img {
+                width: 2em;
+            }
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+// http://www.montecaserosonline.com/galeria/dia.nac.d.las.personas.sordas.jpg

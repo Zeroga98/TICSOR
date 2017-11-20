@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+        <ion-title>TicSor</ion-title>
+        <ion-buttons end>
+            <button style="font-size: 1.8rem;" ion-button color="light" (click)="goToProfile()">
+                <ion-icon name="heart"></ion-icon>
+            </button>
+            <button style="font-size: 1.8rem;" ion-button color="light" (click)="btnSearch()">
+                <ion-icon name="search"></ion-icon>
+            </button>
+            <button style="font-size: 1.8rem;" ion-button color="light" (click)="presentActionSheet()">
+                <ion-icon name="more"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background: #E5E5E5;">
+    <section class="grid-lessons">
+        <div class="lesson-card">
+            <div class="lesson-card-img">
+                <img src="http://www.montecaserosonline.com/galeria/dia.nac.d.las.personas.sordas.jpg" alt="">
+                <div class="cover"></div>
+                <h1>Abecedario</h1>
+            </div>
+            <div class="lesson-card-subheader grid-lessons">
+                <div class="lesson-card-advance">
+                    <p>10%</p>
+                </div>
+                <div class="lesson-card-test">
+                    <img src="https://image.flaticon.com/icons/png/512/243/243322.png" alt="">
+                    <p>Tomar examen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</ion-content>
