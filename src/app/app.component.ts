@@ -9,6 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { LessonsPage } from '../pages/lessons/lessons';
 import { TopicPage } from '../pages/topic/topic';
 import { UserModel } from '../models/user.model';
+import { CoursePage } from '../pages/course/course';
 
 @Component({
   templateUrl: 'app.html'
@@ -33,7 +34,8 @@ export class TICSOR {
       { title: 'Home', component: HomePage },
       { title: 'Noticias', component: NewsPage },
       { title: 'Temario', component: LessonsPage },
-      { title: 'Tema', component: TopicPage }
+      { title: 'Tema', component: TopicPage },
+      { title: 'Curso', component: CoursePage }
     ];
 
   }
