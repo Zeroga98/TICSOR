@@ -4,7 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { NewsPage } from '../pages/news/news';
 import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,7 +18,7 @@ import { TICSOR } from './app.component';
   declarations: [
     TICSOR,
     HomePage,
-    ListPage,
+    NewsPage,
     LoginPage
   ],
   imports: [
@@ -29,7 +29,7 @@ import { TICSOR } from './app.component';
   entryComponents: [
     TICSOR,
     HomePage,
-    ListPage,
+    NewsPage,
     LoginPage
   ],
   providers: [
