@@ -3,7 +3,6 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-
 import { HomePage } from '../pages/home/home';
 import { NewsPage } from '../pages/news/news';
 import { LoginPage } from '../pages/login/login';
@@ -15,7 +14,7 @@ import { LessonsPage } from '../pages/lessons/lessons';
 export class TICSOR {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LessonsPage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
