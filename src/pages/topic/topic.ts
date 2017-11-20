@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
+import { CoursePage } from '../course/course';
+
 
 @Component({
   selector: 'page-topic',
@@ -25,4 +27,7 @@ export class TopicPage {
     });
     actionSheet.present();
   }
+  openCourse() {
+    this.navCtrl.setRoot(CoursePage);
+  }  
 }

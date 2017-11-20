@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
+import { TopicPage } from '../topic/topic';
 
 @Component({
   selector: 'page-lessons',
   templateUrl: 'lessons.html'
 })
 export class LessonsPage {
-
   constructor(
     public navCtrl: NavController,
     public actionSheetCtrl: ActionSheetController) {
@@ -28,4 +28,8 @@ export class LessonsPage {
     });
     actionSheet.present();
   }
+  openTopic() {
+    this.navCtrl.setRoot(TopicPage);
+  }
+  
 }

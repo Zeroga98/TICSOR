@@ -1,0 +1,38 @@
+page-course {
+    .course-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        .course-video-container {
+            .course-video-content {
+                .course-video {
+                    text-align: center;
+                    position: relative;
+                    background: black;
+                    img {
+                        width: 60%;
+                        height: 10%;
+                    }
+                    ion-icon {
+                        position: absolute;
+                        color: #f5f5f5;
+                        font-size: xx-large;
+                        margin: auto;
+                        top: 50%;
+                        left: 50%;
+                        text-shadow: 0 0 18px rgba(0, 0, 0, 0.35);
+                    }
+                }
+            }
+        }
+        .course-explanation-content {}
+        .course-explanaton {
+            text-align: center;
+            h1 {}
+            p {}
+        }
+        .course-explanation-imgs {
+            img {}
+        }
+    }
+}
