@@ -18,103 +18,27 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content style="background: #E5E5E5; padding: .5em;">
-    <div class="topic-grid">
+<ion-content padding style="background: #E5E5E5;">
+    <div class="topic-content">
+        <h1 class="ribbon">
+            <strong class="ribbon-content">Título</strong>
+        </h1>
         <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg" (click)="openCourse()" />
+            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg " (click)="openCourse() " />
             <ion-card-content>
-                <p class="text-center">
-                    Saludo de bienvenida
+                <h3 class="text-center">
+                    <b> 
+                        Descripción del tema
+                    </b> <br> <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed est eros, vulputate eget sodales nec,
+                </h3>
+                <p>
+                    <ion-badge item-start>10%</ion-badge>
+                    Completado
                 </p>
             </ion-card-content>
         </ion-card>
-        <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg" />
-            <ion-card-content>
-                <p class="text-center">
-                    Saludo de bienvenida
-                </p>
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg" />
-            <ion-card-content>
-                <p class="text-center">
-                    Saludo de bienvenida
-                </p>
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg" />
-            <ion-card-content>
-                <p class="text-center">
-                    Saludo de bienvenida
-                </p>
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg" />
-            <ion-card-content>
-                <p class="text-center">
-                    Saludo de bienvenida
-                </p>
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg" />
-            <ion-card-content>
-                <p class="text-center">
-                    Saludo de bienvenida
-                </p>
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg" />
-            <ion-card-content>
-                <p class="text-center">
-                    Saludo de bienvenida
-                </p>
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg" />
-            <ion-card-content>
-                <p class="text-center">
-                    Saludo de bienvenida
-                </p>
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg" />
-            <ion-card-content>
-                <p class="text-center">
-                    Saludo de bienvenida
-                </p>
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg" />
-            <ion-card-content>
-                <p class="text-center">
-                    Saludo de bienvenida
-                </p>
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg" />
-            <ion-card-content>
-                <p class="text-center">
-                    Saludo de bienvenida
-                </p>
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg" />
-            <ion-card-content>
-                <p class="text-center">
-                    Saludo de bienvenida
-                </p>
-            </ion-card-content>
-        </ion-card>
+        <div class="topic-start">
+            <button ion-button block (click)="openCourse()">¡Empezar!</button>
+        </div>
     </div>
 </ion-content>
