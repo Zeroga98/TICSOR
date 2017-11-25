@@ -10,6 +10,8 @@ import { LessonsPage } from '../pages/lessons/lessons';
 import { TopicPage } from '../pages/topic/topic';
 import { UserModel } from '../models/user.model';
 import { CoursePage } from '../pages/course/course';
+import { PracticePage } from '../pages/practice/practice';
+import { TestPage } from '../pages/test/test';
 
 @Component({
   templateUrl: 'app.html'
@@ -35,7 +37,9 @@ export class TICSOR {
       { title: 'Noticias', component: NewsPage },
       { title: 'Temario', component: LessonsPage },
       { title: 'Tema', component: TopicPage },
-      { title: 'Curso', component: CoursePage }
+      { title: 'Curso', component: CoursePage },
+      { title: 'Práctica', component: PracticePage },
+      { title: 'Test', component: TestPage }
     ];
 
   }

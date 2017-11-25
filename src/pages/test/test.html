@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+  </button>
+        <ion-title>TicSor</ion-title>
+        <ion-buttons end (click)="showConfirm()">
+            <button style="font-size: 1.8rem;" ion-button color="light" (click)="presentActionSheet()">
+              <ion-icon name="more"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background: #E5E5E5;">
+    <div class="test-card">
+        <div class="test-header">
+            <img src="http://elcampesino.co/wp-content/uploads/2016/06/5-10.jpg" alt="">
+            <div class="test-lifes">
+                <ion-icon name="heart-outline"></ion-icon>
+                <ion-icon name="heart"></ion-icon>
+                <ion-icon name="heart"></ion-icon>
+            </div>
+        </div>
+        <div class="test-question" padding>
+            <h2>¿Que representa esta imagen?</h2>
+            <ion-list>
+                <ion-item>
+                    <ion-label>Hola</ion-label>
+                    <ion-checkbox></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Callate</ion-label>
+                    <ion-checkbox></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Miti y Miti</ion-label>
+                    <ion-checkbox></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Tómelo</ion-label>
+                    <ion-checkbox></ion-checkbox>
+                </ion-item>
+            </ion-list>
+            <div>
+                <button ion-button block>Calificar</button>
+            </div>
+        </div>
+    </div>
+</ion-content>

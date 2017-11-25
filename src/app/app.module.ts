@@ -13,6 +13,8 @@ import { LessonsPage } from '../pages/lessons/lessons';
 import { Oauth2Service } from '../services/oauth2.service';
 import { TopicPage } from '../pages/topic/topic';
 import { CoursePage } from '../pages/course/course';
+import { PracticePage } from '../pages/practice/practice';
+import { TestPage } from '../pages/test/test';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +31,9 @@ import { TICSOR } from './app.component';
     LoginPage,
     LessonsPage,
     TopicPage,
-    CoursePage
+    CoursePage,
+    PracticePage,
+    TestPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { TICSOR } from './app.component';
     LoginPage,
     LessonsPage,
     TopicPage,
-    CoursePage
+    CoursePage,
+    PracticePage,
+    TestPage
   ],
   providers: [
     GooglePlus,
