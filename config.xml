@@ -84,14 +84,5 @@
         <variable name="REVERSED_CLIENT_ID" value="8ULLAXliR1tioX5bSdU-wU7Q" />
     </plugin>
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
-<<<<<<< HEAD
-    <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
-    <plugin name="cordova-plugin-network-information" spec="^1.3.4" />
-    <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
-    <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
-    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
-    <plugin name="cordova-plugin-document-viewer" spec="^0.9.7" />
-=======
     <plugin name="cordova-plugin-statusbar" spec="^2.3.0" />
->>>>>>> 210fa9aeafc668e6def0b74214a17f46e7d82404
 </widget>

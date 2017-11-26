@@ -62,11 +62,7 @@
             "ionic-plugin-keyboard": {},
             "cordova-plugin-network-information": {},
             "cordova-plugin-inappbrowser": {},
-<<<<<<< HEAD
-            "cordova-plugin-document-viewer": {}
-=======
             "cordova-plugin-statusbar": {}
->>>>>>> 210fa9aeafc668e6def0b74214a17f46e7d82404
         },
         "platforms": [
             "android"
