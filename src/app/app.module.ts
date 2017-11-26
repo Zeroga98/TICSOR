@@ -62,4 +62,13 @@ import { TICSOR } from './app.component';
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private statusBar: StatusBar) {
+    // let status bar overlay webview
+    this.statusBar.overlaysWebView(false);
+    this.statusBar.styleLightContent();
+    this.statusBar.styleBlackTranslucent();
+    // set status bar to white
+    this.statusBar.backgroundColorByHexString('#002200'); 
+  }
+}
