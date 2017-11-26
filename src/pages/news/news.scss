@@ -5,6 +5,7 @@ page-news{
         border-top: 1px solid rgba(0, 0, 0, 0.12);
         color: rgba(0, 0, 0, 0.38);
     }
+    
     .thumbnail {
         position: relative;
         width: 100px;
@@ -16,6 +17,7 @@ page-news{
         left: 50%;
         top: 50%;
         height: 100%;
+        border-radius: 2px;
         width: auto;
         -webkit-transform: translate(-50%,-50%);
             -ms-transform: translate(-50%,-50%);
@@ -23,13 +25,30 @@ page-news{
       }
       .thumbnail img.portrait {
         width: 90%;
-        height: auto;
+        height: 4.9em;
       }
       .fuent{
         display: inline-flex;
         overflow-x: auto;
+        padding-bottom:7px;
       }
       .fuent__thum{
           text-align: center;
       }
+      .fuent__thum > h2{
+        margin: 0px 0;
+        font-size: 13px;
+        font-weight: normal;
+        color: #333;
+      }
+    .padd .scroll-content{
+        padding: 6px 16px;
+    }
+    .not_margin ion-label{
+        margin: 0px;
+    }
+    .btm-line{
+        border-bottom:1px solid #ccc
+    }
+
 }
