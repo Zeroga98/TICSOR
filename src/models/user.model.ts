@@ -17,14 +17,14 @@ export class UserModel {
 	}
 
 	get(){
-	/* 	let object = JSON.parse(localStorage.getItem("user"));
+		let object = JSON.parse(localStorage.getItem("user"));
 		this.names = object.NOMBRES;
 		this.lastname = object.APELLIDOS;
 		this.gener = object.GENERO;
 		this.email = object.CORREO;
 		this.picture = object.FOTO;
 		this.rol = object.ROL;
-		return this; */
+		return this; 
 	}
 
 	isUser(){

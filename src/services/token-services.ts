@@ -6,15 +6,15 @@ import { UserModel } from '../models/user.model'
 export class TokenService {
 
   getToken(): String {
-    return window.localStorage['roadjwt'];
+    return window.localStorage['token'];
   }
 
   saveToken(token: String) {
-    window.localStorage['roadjwt'] = token;
+    window.localStorage['token'] = token;
   }
 
   destroyToken() {
-    window.localStorage.removeItem('roadjwt');
+    window.localStorage.removeItem('token');
   }
 
 // Decodifica el Token y retorna el Payload como tipo usuario

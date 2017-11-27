@@ -14,12 +14,7 @@ export class Oauth2Service {
 
   getAccessToken(code: string) {
     return this.http.post('http://chaira.udla.edu.co/api/v0.1/oauth2/authorize.asmx/token', JSON.stringify({
-      grant_type: "authorization_code", 
-      code: code,
-      redirect_uri: "http://localhost/callback",
-      client_id: "607027410088",
-      client_secret: "r3wd4q0x12gmevyn4lp729vpl7gejy",
-      state: "OK"
+      grant_type: "authorization_code"
     }))
     .toPromise()
     .then(response => response.json(), this.handleError);

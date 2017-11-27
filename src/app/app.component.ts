@@ -23,25 +23,24 @@ export class TICSOR {
 
   rootPage: any = HomePage;
   user: UserModel;
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
   currentUser: UserModel;
 
   constructor(
-    public platform: Platform, 
-    public statusBar: StatusBar, 
-    public splashScreen: SplashScreen, 
+    public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
     public events: Events,
     public oauth2Service: Oauth2Service,
     public appCtrl: App
-  ){
+  ) {
     this.initializeApp();
-    this.getUserProfile();
+    this.user = new UserModel();
 
-  /*   events.subscribe('user:exist', (user) => {
+    events.subscribe('user:exist', (user) => {
       this.user = user;
-    }); */
+    }); 
 
-    // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Noticias', component: NewsPage },
@@ -51,53 +50,27 @@ export class TICSOR {
       { title: 'Práctica', component: PracticePage },
       { title: 'Test', component: TestPage }
     ];
-
   }
 
-/*   ngOnInit() {
-      if(!this.user.isUser()){
-        this.nav.setRoot(LoginPage);
-      } else {
-        this.user.get();
-      }
-   }
- */
+  ngOnInit() {
+    if (!this.user.isUser()) {
+      this.nav.setRoot(LoginPage);
+    } else {
+      this.user.get();
+    }
+  }
+
   initializeApp() {
-    this.oauth2Service.populate(); 
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-    this.oauth2Service.currentUser.subscribe((userData) => { 
-      this.currentUser = userData;
-    });
   }
 
   openPage(page) {
-    this.appCtrl.getRootNav().setRoot(page.component).catch(err => {
-      console.log(err);
-      this.appCtrl.getRootNav().setRoot(LoginPage);
-    });
-  }
-  
-  private getUserProfile(){
-    this.oauth2Service.getUser().subscribe(
-        data => {
-          if(data != undefined && data[0].status != 'ERROR'){
-            
-
-            this.oauth2Service.setCurrentUser(this.currentUser);
-            
-          } else if(data[0].type == 'token_null'){
-            console.log("No esta logeado");
-          }
-        },
-        error => {
-          console.log(error);
-        }
-      );
+    this.nav.setRoot(page.component);
   }
 
 }
