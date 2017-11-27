@@ -45,7 +45,6 @@ export class TICSOR {
         this.nav.setRoot(LoginPage);
       } else {
         this.user.get();
-        console.log(this.user);
       }
    }
 
