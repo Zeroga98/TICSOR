@@ -6,6 +6,7 @@ import { LoginPage } from '../../pages/login/login';
 import { CourseService } from '../../services/course.service';
 
 import { LessonsPage } from '../lessons/lessons';
+import { AboutusPage } from '../aboutus/aboutus';
 import { NewsPage } from '../news/news';
 
 
@@ -55,6 +56,10 @@ export class HomePage {
   openTemario() {
     this.navCtrl.setRoot(LessonsPage);
   }  
+
+  openAbout(){
+    this.navCtrl.setRoot(AboutusPage);
+  }
 
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({

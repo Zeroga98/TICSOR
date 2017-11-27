@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { TestPage } from '../test/test';
 
+import { TemaryService } from '../../services/temary.service';
 
 @Component({
   selector: 'page-practice',
@@ -9,17 +10,22 @@ import { TestPage } from '../test/test';
 })
 export class PracticePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  public temary;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private temaryService: TemaryService) {
+    this.temaryService.getAll(1)
+    .subscribe((data)=> {
+      this.temary = data.result;
+    }, (error) => {
+      console.log(error);
+    });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PracticePage');
-  }
-  openTest() {
-    this.navCtrl.setRoot(TestPage);
+  openTest(temary) {
+    this.navCtrl.setRoot(TestPage, { temary: temary });
   }  
   
-  startTest() {
+  startTest(temary) {
     let confirm = this.alertCtrl.create({
       title: '¿Desea tomar el test ahora?',
       message: 'Se evaluarán los puntos vistos en esta temática.',
@@ -33,7 +39,7 @@ export class PracticePage {
         {
           text: 'Empezar',
           handler: () => {
-            this.openTest();
+            this.openTest(temary);
           }
         }
       ]
