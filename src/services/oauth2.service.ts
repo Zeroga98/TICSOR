@@ -78,6 +78,7 @@ export class Oauth2Service {
   public isLogin(){
     return this.tokenService.getToken();
   }
+  
 
 
   getAccessToken(code: string) {
