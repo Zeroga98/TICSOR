@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>TicSor</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="course-grid">
+        <div class="course-video-container">
+            <ion-slides pager class="slider" (ionSlideDidChange)="slideChanged()">
+                <ion-slide class="slider-page" >
+                    <img  src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg">
+                   <!--  <video id="video-{{content.id}}" *ngIf="content.multimedia_tipo == 1" width="100%" >
+                      <source src="{{content.url}}" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video> -->
+                <!--     <ion-icon *ngIf="content.multimedia_tipo == 1" name="{{reproduce}}" (click)="reproduceVideo(content.id)"></ion-icon> -->
+                </ion-slide>
+
+            </ion-slides>
+        </div>
+         <div class="course-explanation-content">
+            <div class="course-explanaton" *ngIf="contentSelected">
+                <h1>Prueba</h1>
+                <p>Asi se dice </p>
+            </div>
+        </div> 
+    </div>
+</ion-content>

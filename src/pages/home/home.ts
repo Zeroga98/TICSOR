@@ -4,10 +4,14 @@ import { ActionSheetController } from 'ionic-angular';
 import { UserModel } from '../../models/user.model';
 import { LoginPage } from '../../pages/login/login';
 import { CourseService } from '../../services/course.service';
+import { QrPage } from '../../pages/qr/qr';
 
 import { LessonsPage } from '../lessons/lessons';
 import { AboutusPage } from '../aboutus/aboutus';
 import { NewsPage } from '../news/news';
+
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { AlertController } from 'ionic-angular';
 
 
 @Component({
@@ -19,11 +23,14 @@ export class HomePage {
   public course: any;
   public user: UserModel;
   news: Array<{ title: string, img: string, url: string }>;
+  scannedCode :string;
 
   constructor(
     public navCtrl: NavController,
     public actionSheetCtrl: ActionSheetController, 
-    private courseService: CourseService) {
+    private courseService: CourseService,
+    private barcodeScanner: BarcodeScanner,
+    public alertCtrl: AlertController) {
       this.news = [
         {title: 'Instituto nacional para sordos', img: 'assets/imgs/news/insor.png', url: 'http://www.insor.gov.co' },
         {title: 'Asociación de sordos del Caquetá', img: 'assets/imgs/news/asorca.png', url: 'https://www.fenascol.org.co/index.php/asociacion-de-sordos-del-caqueta' },
@@ -52,7 +59,15 @@ export class HomePage {
       });
     }*/
   }
-
+  scanCode(){
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.scannedCode= barcodeData.text;
+      this.navCtrl.setRoot(QrPage,{
+        theme:  this.scannedCode
+      });
+    })
+    
+  }
   openTemario() {
     this.navCtrl.setRoot(LessonsPage);
   }  

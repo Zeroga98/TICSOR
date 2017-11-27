@@ -14,12 +14,14 @@ import { Oauth2Service } from '../services/oauth2.service';
 import { AuthService } from '../services/auth.service';
 import { CourseService } from '../services/course.service';
 import { TemaryService } from '../services/temary.service';
+import { QrService } from '../services/qr.service';
 import { ApiService } from '../services/api-service';
 import { TokenService } from '../services/token-services';
 import { UtilProvider } from '../providers/util-provider';
 import { StringsProvider } from '../providers/strings-provider';
 import { TopicPage } from '../pages/topic/topic';
 import { CoursePage } from '../pages/course/course';
+import { QrPage } from '../pages/qr/qr';
 import { PracticePage } from '../pages/practice/practice';
 import { TestPage } from '../pages/test/test';
 import { AboutusPage } from '../pages/aboutus/aboutus';
@@ -43,6 +45,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     LessonsPage,
     TopicPage,
     CoursePage,
+    QrPage,
     PracticePage,
     TestPage,
     AboutusPage
@@ -62,6 +65,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     LessonsPage,
     TopicPage,
     CoursePage,
+    QrPage,
     PracticePage,
     TestPage,
     AboutusPage
@@ -74,6 +78,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     ApiService,
     TokenService,
     TemaryService,
+    QrService,
     Oauth2Service,
     AuthService,
     CourseService,
