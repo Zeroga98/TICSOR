@@ -85,7 +85,7 @@ export class TestPage {
 		} else {
 			//Terminar el juego
 			let total_response = this.questions.length - (3 - this.life);
-			let total = (total_response * 10) / this.questions.length;
+			let total = Math.floor((total_response * 10) / this.questions.length);
 			let token: any = this.tokenService.getPayload();
 
 			if (this.navParams.get("type") == 1) {
