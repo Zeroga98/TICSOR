@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { LessonsPage } from '../../pages/lessons/lessons';
 import { TemaryService } from '../../services/temary.service';
@@ -16,8 +16,10 @@ export class TestPage {
 	public questions;
 	public questionIndex = 0;
 	public life = 3;
+	title ="";
+	subtitle ="";
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private temaryService: TemaryService, private tokenService: TokenService) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, private temaryService: TemaryService, private tokenService: TokenService, private alertCtrl: AlertController) {
 		this.reproduce = "play";
 		this.temary = navParams.get("temary");
 		
@@ -27,23 +29,46 @@ export class TestPage {
 				console.log(this.questions);
 			});
 	}
-
+	presentAlert(type) {		
+		if(type == 'bad'){
+			this.title = '¡Oh Oh!';
+			this.subtitle = 'Te has equivocado :(';
+		}else if(type == 'wrong'){
+			this.title = 'Te has quedado sin vidas';
+			this.subtitle = 'Repasa la temática e inténtalo de nuevo.';
+		}else if(type == 'good'){
+			this.title = 'Felicidades';
+			this.subtitle = 'Has completado con éxito la temática.';			
+		}
+		let alert = this.alertCtrl.create({
+		  title: this.title,
+		  subTitle: this.subtitle,
+		  buttons: ['Continuar']
+		});
+		alert.present();
+	  }
+	  
 	ionViewDidLoad() {
 	}
 
 	public response() {
 		let responseCorrectId = this.responseCorrect();
-
+		let stateTest = "";
+		
 		if(this.questions[this.questionIndex].select != responseCorrectId){
 			//Respondio mal
+			stateTest = 'bad';
 			this.life--;
 			if(this.life == 0){
 				//Perdio empieza de nuevo
-				this.navCtrl.pop();
-			}
-		}else {
-			//Respondio bien
+			stateTest = 'wrong';
+			this.navCtrl.pop();
 		}
+	}else {
+		stateTest = 'good';		
+		//Respondio bien
+	}
+	this.presentAlert(stateTest);			
 
 		if (this.questionIndex < this.questions.length - 1) {
 			this.questionIndex++;
