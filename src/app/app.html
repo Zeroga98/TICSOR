@@ -13,6 +13,10 @@
                 <ion-icon name="{{p.icon}}" color="primary" item-start></ion-icon>                    
                 {{p.title}}
             </button>
+            <button menuClose ion-item (click)="scanCode()">
+                <ion-icon name="qr-scanner" color="primary" item-start></ion-icon>                    
+                Código QR
+            </button>
         </ion-list>
     </ion-content>
 

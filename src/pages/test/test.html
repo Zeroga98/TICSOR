@@ -19,7 +19,7 @@
         <ion-slides pager class="slider">
           <ion-slide class="slider-page" *ngFor="let i = index; let image of questions[questionIndex].images">
             <img *ngIf="image.indexOf('mp4') == -1" src="{{image}}" alt="">
-            <video *ngIf="image.indexOf('mp4') != -1" id="video-{{i}}" width="320" height="240">
+            <video *ngIf="image.indexOf('mp4') != -1" id="video-{{i}}" width="100%">
               <source src="{{image}}" type="video/mp4">
               Your browser does not support the video tag.
             </video>

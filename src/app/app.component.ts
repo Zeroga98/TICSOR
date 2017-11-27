@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { App, Nav, Platform, Events } from 'ionic-angular';
+import { App, Nav, Platform, Events, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -16,6 +16,8 @@ import { AboutusPage } from '../pages/aboutus/aboutus';
 import { Oauth2Service } from '../services/oauth2.service';
 
 import { UserModel } from '../models/user.model';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   templateUrl: 'app.html'
@@ -27,14 +29,16 @@ export class TICSOR {
   user: UserModel;
   pages: Array<{ title: string, component: any, icon:  string}>;
   currentUser: UserModel;
-
+  scannedCode :string;
   constructor(
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public events: Events,
     public oauth2Service: Oauth2Service,
-    public appCtrl: App
+    public appCtrl: App,
+    private barcodeScanner: BarcodeScanner,
+    public alertCtrl: AlertController
   ) {
     this.initializeApp();
     this.user = new UserModel();
@@ -51,7 +55,17 @@ export class TICSOR {
       { title: 'Nosotros', component: AboutusPage, icon: 'contact' }
     ];
   }
+  createCode(){
 
+  }
+  scanCode(){
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.scannedCode= barcodeData.text;
+      console.log(this.scannedCode);
+      
+    })
+    
+  }
   ngOnInit() {
     if (this.user.isUser()) {
       this.user.get();

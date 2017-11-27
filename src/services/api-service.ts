@@ -11,7 +11,7 @@ import { Network } from '@ionic-native/network';
 @Injectable()
 export class ApiService {
 
-  private api_base_url = 'http://192.168.1.19:3310';
+  private api_base_url = 'http://cd90ac5f.ngrok.io';
 	private wifi: boolean = true;
 
   constructor(
