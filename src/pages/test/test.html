@@ -1,78 +1,55 @@
 <ion-header>
-    <ion-navbar color="primary">
-        <button ion-button menuToggle>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-  </button>
-        <ion-title>TicSor</ion-title>
-        <ion-buttons end (click)="showConfirm()">
-            <button style="font-size: 1.8rem;" ion-button color="light" (click)="presentActionSheet()">
-              <ion-icon name="more"></ion-icon>
-          </button>
-        </ion-buttons>
-    </ion-navbar>
+    </button>
+    <ion-title>TicSor</ion-title>
+    <ion-buttons end (click)="showConfirm()">
+      <button style="font-size: 1.8rem;" ion-button color="light" (click)="presentActionSheet()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
-
 <ion-content padding style="background: #E5E5E5;">
-    <div>
-        <div class="test-card">
-            <div class="test-header">
-                <div class="test-lifes">
-                    <ion-icon name="heart-outline"></ion-icon>
-                    <ion-icon name="heart"></ion-icon>
-                    <ion-icon name="heart"></ion-icon>
-                </div>
-                <h2 class="question-words">¿Cúal es Laura no ha dormido?</h2>
-            </div>
+  <div *ngIf="questions">
+    <div class="test-card">
+      <div class="test-header">
+        <br>
+        <ion-slides pager class="slider">
+          <ion-slide class="slider-page" *ngFor="let i = index; let image of questions[questionIndex].images">
+            <img *ngIf="image.indexOf('mp4') == -1" src="{{image}}" alt="">
+            <video *ngIf="image.indexOf('mp4') != -1" id="video-{{i}}" width="320" height="240">
+              <source src="{{image}}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <ion-icon *ngIf="image.indexOf('mp4') != -1" name="{{reproduce}}" (click)="reproduceVideo(i)"></ion-icon>
+          </ion-slide>
+        </ion-slides>
+        <div class="test-lifes">
+          <ion-icon name="heart-outline"></ion-icon>
+          <ion-icon name="heart"></ion-icon>
+          <ion-icon name="heart"></ion-icon>
         </div>
-        <div class="test-question grid-imgs" padding>
-            <div class="answer">
-                <img src="assets/imgs/laura.jpg" alt="">
-            </div>
-            <div class="answer">
-                <img src="assets/imgs/laura.jpg" alt="">
-            </div>
-            <div class="answer selected">
-                <img src="assets/imgs/laura.jpg" alt="">
-            </div>
-            <div class="answer">
-                <img src="assets/imgs/laura.jpg" alt="">
-            </div>
-        </div>
-        <div>
-            <button ion-button block>Calificar</button>
-        </div>
+        <h2>{{questions[questionIndex].pregunta}}</h2>
+      </div>
+    </div>
+    <div class="test-question" padding *ngIf="questions[questionIndex].respuesta[0].imagen == 0">
+      <ion-list>
+        <ion-item *ngFor="let item of questions[questionIndex].respuesta">
+          <ion-label (click)="questions[questionIndex].select = item.id">{{item.contenido}}</ion-label>
+          <ion-checkbox (click)="questions[questionIndex].select = item.id" color="dark" checked="{{questions[questionIndex].select == item.id}}"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="test-question grid-imgs" padding *ngIf="questions[questionIndex].respuesta[0].imagen > 0">
+      <div class="answer" *ngFor="let item of questions[questionIndex].respuesta" (click)="questions[questionIndex].select = item.id" [ngClass]="{'selected': questions[questionIndex].select == item.id}">
+        <!--selected en answer-->
+        <img src="{{item.contenido}}" alt="">
+      </div>
     </div>
     <div>
-
-        <div class="test-card">
-            <div class="test-header">
-                <img src="http://elcampesino.co/wp-content/uploads/2016/06/5-10.jpg" alt="">
-                <div class="test-lifes">
-                    <ion-icon name="heart-outline"></ion-icon>
-                    <ion-icon name="heart"></ion-icon>
-                    <ion-icon name="heart"></ion-icon>
-                </div>
-                <h2>¿Que representa esta imagen?</h2>
-            </div>
-        </div>
-        <div class="test-question" padding>
-            <ion-list>
-                <ion-item>
-                    <ion-label>Partido</ion-label>
-                    <ion-checkbox color="dark" checked="true"></ion-checkbox>
-                </ion-item>
-                <ion-item>
-                    <ion-label>Hambre</ion-label>
-                    <ion-checkbox></ion-checkbox>
-                </ion-item>
-                <ion-item>
-                    <ion-label>Miti y Miti</ion-label>
-                    <ion-checkbox></ion-checkbox>
-                </ion-item>
-            </ion-list>
-        </div>
-        <div>
-            <button ion-button block>Calificar</button>
-        </div>
+      <button ion-button block (click)="response()" [disabled]="questions[questionIndex].select == 0">Calificar</button>
     </div>
+  </div>
 </ion-content>

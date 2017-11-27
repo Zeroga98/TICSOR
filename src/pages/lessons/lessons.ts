@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 import { TopicPage } from '../topic/topic';
+import { TestPage } from '../test/test';
 
 import { TemaryService } from '../../services/temary.service';
 
@@ -44,6 +45,12 @@ export class LessonsPage {
 
   openTopic(temary) {
     this.navCtrl.push(TopicPage, {
+      temary: temary
+    });
+  }
+
+  openTest(temary){
+     this.navCtrl.push(TestPage, {
       temary: temary
     });
   }

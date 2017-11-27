@@ -21,6 +21,10 @@ export class TemaryService {
   	return this.api.get(`/temary/get-content/${ temaryId }`);	
   }
 
+  getTest(temaryId){
+  	return this.api.get(`/temary/get-question/${ temaryId }`);		
+  }
+
   handleError(error) {
     console.log(error);
     return error.json().message || 'Server error, please try again later';
