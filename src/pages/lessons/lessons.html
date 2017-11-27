@@ -20,7 +20,7 @@
 <ion-content padding style="background: #E5E5E5;">
     <section class="grid-lessons">
         <div class="lesson-card" *ngFor="let temary of temary">
-            <div class="lesson-card-img" (click)="openTopic()">
+            <div class="lesson-card-img" (click)="openTopic(temary)">
                 <img src="{{temary.image}}" alt="">
                 <div class="cover"></div>
                 <h1>{{temary.nombre}}</h1>

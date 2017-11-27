@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 import { CoursePage } from '../course/course';
+import { LoginPage } from '../../pages/login/login';
 
+import { TemaryService } from '../../services/temary.service';
 
 @Component({
   selector: 'page-topic',
@@ -10,8 +12,13 @@ import { CoursePage } from '../course/course';
 })
 export class TopicPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController) {
+  public temary;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController, private temaryService: TemaryService) {
+    this.temary = navParams.get("temary");
+    console.log(this.temary);
   }
+
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'TicSor',
@@ -20,14 +27,18 @@ export class TopicPage {
           text: 'Cerrar Sesion',
           role: 'Close Sesion',
           handler: () => {
-            console.log('Destructive clicked');
+            localStorage.clear();
+            this.navCtrl.setRoot(LoginPage);
           }
         }
       ]
     });
     actionSheet.present();
   }
+  
   openCourse() {
-    this.navCtrl.setRoot(CoursePage);
+    this.navCtrl.push(CoursePage, {
+      temary: this.temary
+    });
   }  
 }

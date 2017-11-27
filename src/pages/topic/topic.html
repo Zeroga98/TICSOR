@@ -5,12 +5,6 @@
     </button>
         <ion-title>Tema</ion-title>
         <ion-buttons end>
-            <button style="font-size: 1.8rem;" ion-button color="light" (click)="goToProfile()">
-              <ion-icon name="heart"></ion-icon>
-          </button>
-            <button style="font-size: 1.8rem;" ion-button color="light" (click)="btnSearch()">
-              <ion-icon name="search"></ion-icon>
-          </button>
             <button style="font-size: 1.8rem;" ion-button color="light" (click)="presentActionSheet()">
               <ion-icon name="more"></ion-icon>
           </button>
@@ -21,19 +15,17 @@
 <ion-content padding style="background: #E5E5E5;">
     <div class="topic-content">
         <h1 class="ribbon">
-            <strong class="ribbon-content">Título</strong>
+            <strong class="ribbon-content">{{temary.nombre}}</strong>
         </h1>
         <ion-card>
-            <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg " (click)="openCourse() " />
+            <img src="{{temary.image}}" />
             <ion-card-content>
                 <h3 class="text-center">
-                    <b> 
-                        Descripción del tema
-                    </b> <br> <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed est eros, vulputate eget sodales nec,
+                     <br> {{temary.description}}
                 </h3>
-                <p>
-                    <ion-badge item-start>10%</ion-badge>
-                    Completado
+                <p *ngIf="temary.resultado">
+                    <ion-badge item-start>{{temary.resultado}}</ion-badge>
+                    Resultado actual
                 </p>
             </ion-card-content>
         </ion-card>

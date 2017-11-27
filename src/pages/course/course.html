@@ -4,42 +4,27 @@
         <ion-icon name="menu"></ion-icon>
     </button>
         <ion-title>TicSor</ion-title>
-        <ion-buttons end>
-            <button style="font-size: 1.8rem;" ion-button color="light" (click)="goToProfile()">
-                <ion-icon name="heart"></ion-icon>
-            </button>
-            <button style="font-size: 1.8rem;" ion-button color="light" (click)="btnSearch()">
-                <ion-icon name="search"></ion-icon>
-            </button>
-            <button style="font-size: 1.8rem;" ion-button color="light" (click)="presentActionSheet()">
-                <ion-icon name="more"></ion-icon>
-            </button>
-        </ion-buttons>
     </ion-navbar>
 </ion-header>
 <ion-content>
     <div class="course-grid">
         <div class="course-video-container">
-            <ion-slides pager class="slider">
-                <ion-slide style="background-color: green" class="slider-page">
-                    <h2>Video 1</h2>
-                    <ion-icon name="{{reproduce}}" (click)="reproduceVideo()"></ion-icon>
-                </ion-slide>
-
-                <ion-slide style="background-color: blue">
-                    <h2>video 2</h2>
-                </ion-slide>
-
-                <ion-slide style="background-color: red">
-                    <h2>Video 3</h2>
+            <ion-slides pager class="slider" (ionSlideDidChange)="slideChanged()">
+                <ion-slide class="slider-page" *ngFor="let content of content">
+                    <img *ngIf="content.multimedia_tipo == 0" src="{{content.url}}">
+                    <video id="video-{{content.id}}" *ngIf="content.multimedia_tipo == 1" width="320" height="240">
+                      <source src="{{content.url}}" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>
+                    <ion-icon *ngIf="content.multimedia_tipo == 1" name="{{reproduce}}" (click)="reproduceVideo(content.id)"></ion-icon>
                 </ion-slide>
 
             </ion-slides>
         </div>
         <div class="course-explanation-content">
-            <div class="course-explanaton">
-                <h1>Tema</h1>
-                <p>pequeña explicación</p>
+            <div class="course-explanaton" *ngIf="contentSelected">
+                <h1>{{contentSelected.titulo}}</h1>
+                <p>{{contentSelected.descripcion}}</p>
             </div>
             <button ion-button color="light" outline (click)="showConfirm()" class="test-btn">Tomar examen</button>
         </div>

@@ -25,7 +25,12 @@ export class HomePage {
 
     this.user = new UserModel();
 
-    if (!this.user.isUser()) {
+    this.courseService.getAll()
+      .subscribe((data) => {
+        this.course = data.result[0];
+        console.log(this.course);
+      });
+    /*if (!this.user.isUser()) {
       this.navCtrl.setRoot(LoginPage);
     } else { 
       this.user.get();
@@ -34,7 +39,7 @@ export class HomePage {
         this.course = data.result[0];
         console.log(this.course);
       });
-    }
+    }*/
   }
 
   openTemario() {

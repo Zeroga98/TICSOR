@@ -20,9 +20,7 @@ export class LessonsPage {
 
     this.temaryService.getAll(1)
     .subscribe((data)=> {
-      console.log(data);
       this.temary = data.result;
-      console.log(this.temary);
     }, (error) => {
       console.log(error);
     });
@@ -44,8 +42,10 @@ export class LessonsPage {
     actionSheet.present();
   }
 
-  openTopic() {
-    this.navCtrl.setRoot(TopicPage);
+  openTopic(temary) {
+    this.navCtrl.push(TopicPage, {
+      temary: temary
+    });
   }
   
 }
