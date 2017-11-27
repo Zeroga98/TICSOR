@@ -17,12 +17,22 @@ export class HomePage {
 
   public course: any;
   public user: UserModel;
+  news: Array<{ title: string, img: string, url: string }>;
 
   constructor(
     public navCtrl: NavController,
     public actionSheetCtrl: ActionSheetController, 
     private courseService: CourseService) {
-
+      this.news = [
+        {title: 'Instituto nacional para sordos', img: 'assets/imgs/news/insor.png', url: 'http://www.insor.gov.co' },
+        {title: 'Asociación de sordos del Caquetá', img: 'assets/imgs/news/asorca.png', url: 'https://www.fenascol.org.co/index.php/asociacion-de-sordos-del-caqueta' },
+        {title: 'Federación nacional de sordeos de Colombia', img: 'assets/imgs/news/fenascol.png', url: 'https://www.fenascol.org.co/index.php' },
+        {title: 'Centro de relevo', img: 'assets/imgs/news/relevo.jpg', url: 'http://www.centroderelevo.gov.co' },
+        {title: 'Federación Mundial de Sordos', img: 'assets/imgs/news/wfdeaf.png', url: 'https://wfdeaf.org' },
+        {title: 'Fundación Dime Colombia', img: 'assets/imgs/news/dime.png', url: 'http://www.dimecolombia.org' },
+        {title: 'Fundación Dime Colombia', img: 'assets/imgs/news/eco.png', url: 'https://www.fundacioneco.es' }
+        
+      ];
     this.user = new UserModel();
 
     this.courseService.getAll()
