@@ -14,6 +14,7 @@ import { Oauth2Service } from '../services/oauth2.service';
 import { AuthService } from '../services/auth.service';
 import { CourseService } from '../services/course.service';
 import { TemaryService } from '../services/temary.service';
+import { EvaluateService } from '../services/evaluate.service';
 import { QrService } from '../services/qr.service';
 import { ApiService } from '../services/api-service';
 import { TokenService } from '../services/token-services';
@@ -78,6 +79,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     ApiService,
     TokenService,
     TemaryService,
+    EvaluateService,
     QrService,
     Oauth2Service,
     AuthService,

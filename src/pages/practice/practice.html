@@ -9,13 +9,13 @@
 
 
 <ion-content padding style="background: #E5E5E5;">
-    <div class="test-container">
+    <div class="test-container" *ngIf="course">
         <div class="test-header shadow-box" padding>
             <div class="h2-ribbon">
                 <h2>¿Listo para probar tus conocimientos?</h2>
             </div>
             <p>Selecciona una unidad y responde correctamente las preguntas para certificarte.</p>
-            <div class="btn-certificate vibrate-1">
+            <div class="btn-certificate vibrate-1" *ngIf="course.cursados == course.temarios" (click)="openEvaluate()">
                 <img src="assets/imgs/diploma.svg" alt="">
                 <p>Certifícate ahora</p>
             </div>
@@ -26,7 +26,7 @@
                 <ion-item *ngFor="let item of temary" [ngClass]="{'test-complete': item.resultado >= 8}">
                     <div *ngIf="item.resultado >= 8" class="complete-mark">Completado</div>
                     <ion-thumbnail item-start>
-                        <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg">
+                        <img src="{{item.image}}">
                     </ion-thumbnail>
                     <h2>{{item.nombre}}</h2>
                     <p *ngIf="item.resultado">{{item.resultado}} nota actual</p>

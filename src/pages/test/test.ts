@@ -4,6 +4,7 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { LessonsPage } from '../../pages/lessons/lessons';
 import { TemaryService } from '../../services/temary.service';
 import { TokenService } from '../../services/token-services';
+import { EvaluateService } from '../../services/evaluate.service';
 
 @Component({
 	selector: 'page-test',
@@ -16,73 +17,95 @@ export class TestPage {
 	public questions;
 	public questionIndex = 0;
 	public life = 3;
-	title ="";
-	subtitle ="";
+	public evaluateId = 1;
+	title = "";
+	subtitle = "";
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private temaryService: TemaryService, private tokenService: TokenService, private alertCtrl: AlertController) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, private temaryService: TemaryService, private tokenService: TokenService, private alertCtrl: AlertController, private evaluateService: EvaluateService) {
 		this.reproduce = "play";
-		this.temary = navParams.get("temary");
-		
-		temaryService.getTest(this.temary.id)
-			.subscribe((data) => {
-				this.questions = this.randomQuestions(data.result);
-				console.log(this.questions);
-			});
+
+		if (navParams.get("type") == 1) {
+			evaluateService.getQuestions(this.evaluateId)
+				.subscribe((data) => {
+					this.questions = this.randomQuestions(data.result);
+					console.log(this.questions);
+				});
+		} else {
+			this.temary = navParams.get("temary");
+			temaryService.getTest(this.temary.id)
+				.subscribe((data) => {
+					this.questions = this.randomQuestions(data.result);
+					console.log(this.questions);
+				});
+		}
 	}
-	presentAlert(type) {		
-		if(type == 'bad'){
+
+	presentAlert(type) {
+		if (type == 'bad') {
 			this.title = '¡Oh Oh!';
 			this.subtitle = 'Te has equivocado :(';
-		}else if(type == 'wrong'){
+		} else if (type == 'wrong') {
 			this.title = 'Te has quedado sin vidas';
 			this.subtitle = 'Repasa la temática e inténtalo de nuevo.';
-		}else if(type == 'good'){
+		} else if (type == 'good') {
 			this.title = 'Felicidades';
-			this.subtitle = 'Has completado con éxito la temática.';			
+			this.subtitle = 'Has completado con éxito la temática.';
 		}
 		let alert = this.alertCtrl.create({
-		  title: this.title,
-		  subTitle: this.subtitle,
-		  buttons: ['Continuar']
+			title: this.title,
+			subTitle: this.subtitle,
+			buttons: ['Continuar']
 		});
 		alert.present();
-	  }
-	  
+	}
+
 	ionViewDidLoad() {
 	}
 
 	public response() {
 		let responseCorrectId = this.responseCorrect();
 		let stateTest = "";
-		
-		if(this.questions[this.questionIndex].select != responseCorrectId){
+
+		if (this.questions[this.questionIndex].select != responseCorrectId) {
 			//Respondio mal
 			stateTest = 'bad';
 			this.life--;
-			if(this.life == 0){
+			if (this.life == 0) {
 				//Perdio empieza de nuevo
-			stateTest = 'wrong';
-			this.navCtrl.pop();
+				stateTest = 'wrong';
+				this.presentAlert(stateTest);
+				this.navCtrl.pop();
+				return;
+			}
+			this.presentAlert(stateTest);
 		}
-	}else {
-		stateTest = 'good';		
-		//Respondio bien
-	}
-	this.presentAlert(stateTest);			
 
 		if (this.questionIndex < this.questions.length - 1) {
 			this.questionIndex++;
 		} else {
 			//Terminar el juego
 			let total_response = this.questions.length - (3 - this.life);
-			let total = (total_response * 10)/this.questions.length;
+			let total = (total_response * 10) / this.questions.length;
 			let token: any = this.tokenService.getPayload();
 
-			this.temaryService.response(token.correo, this.temary.id, total)
-			.subscribe((data) => {
-				//Notificar que termina el juego
-				this.navCtrl.setRoot(LessonsPage);
-			});
+			if (this.navParams.get("type") == 1) {
+				this.evaluateService.response(token.correo, this.evaluateId, total)
+				.subscribe((data) => {
+					//Notificar que termina el juego
+					stateTest = 'good';
+					this.presentAlert(stateTest);
+					this.navCtrl.setRoot(LessonsPage);
+				});
+			} else {
+				this.temaryService.response(token.correo, this.temary.id, total)
+				.subscribe((data) => {
+					//Notificar que termina el juego
+					stateTest = 'good';
+					this.presentAlert(stateTest);
+					this.navCtrl.setRoot(LessonsPage);
+				});
+			}
+			
 		}
 	}
 
@@ -104,9 +127,9 @@ export class TestPage {
 		}
 	}
 
-	private responseCorrect(){
+	private responseCorrect() {
 		for (let i = 0; i < this.questions[this.questionIndex].respuesta.length; ++i) {
-			if(this.questions[this.questionIndex].respuesta[i].correcta == 1){
+			if (this.questions[this.questionIndex].respuesta[i].correcta == 1) {
 				return this.questions[this.questionIndex].respuesta[i].id;
 			}
 		}
