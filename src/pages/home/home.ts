@@ -31,7 +31,7 @@ export class HomePage {
         {title: 'Centro de relevo', img: 'assets/imgs/news/relevo.jpg', url: 'http://www.centroderelevo.gov.co' },
         {title: 'Federación Mundial de Sordos', img: 'assets/imgs/news/wfdeaf.png', url: 'https://wfdeaf.org' },
         {title: 'Fundación Dime Colombia', img: 'assets/imgs/news/dime.png', url: 'http://www.dimecolombia.org' },
-        {title: 'Fundación Dime Colombia', img: 'assets/imgs/news/eco.png', url: 'https://www.fundacioneco.es' }
+        {title: 'Fundación Eco', img: 'assets/imgs/news/eco.png', url: 'https://www.fundacioneco.es' }
         
       ];
     this.user = new UserModel();
@@ -66,7 +66,7 @@ export class HomePage {
       title: 'TicSor',
       buttons: [
         {
-          text: 'Cerrar Sesion',
+          text: '⊗ Cerrar Sesion',
           role: 'Close Sesion',
           handler: () => {
             localStorage.clear();
