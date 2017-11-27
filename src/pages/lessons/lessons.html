@@ -19,63 +19,16 @@
 </ion-header>
 <ion-content padding style="background: #E5E5E5;">
     <section class="grid-lessons">
-        <div class="lesson-card">
+        <div class="lesson-card" *ngFor="let temary of temary">
             <div class="lesson-card-img" (click)="openTopic()">
-                <img src="http://www.montecaserosonline.com/galeria/dia.nac.d.las.personas.sordas.jpg" alt="">
+                <img src="{{temary.image}}" alt="">
                 <div class="cover"></div>
-                <h1>Abecedario</h1>
+                <h1>{{temary.nombre}}</h1>
             </div>
             <div class="lesson-card-subheader">
                 <div class="lesson-card-advance">
-                    <p>10%</p>
-                </div>
-                <div class="lesson-card-test">
-                    <img src="https://image.flaticon.com/icons/png/512/243/243322.png" alt="">
-                    <p>Tomar examen</p>
-                </div>
-            </div>
-        </div>
-        <div class="lesson-card">
-            <div class="lesson-card-img">
-                <img src="http://www.montecaserosonline.com/galeria/dia.nac.d.las.personas.sordas.jpg" alt="">
-                <div class="cover"></div>
-                <h1>Abecedario</h1>
-            </div>
-            <div class="lesson-card-subheader">
-                <div class="lesson-card-advance">
-                    <p>10%</p>
-                </div>
-                <div class="lesson-card-test">
-                    <img src="https://image.flaticon.com/icons/png/512/243/243322.png" alt="">
-                    <p>Tomar examen</p>
-                </div>
-            </div>
-        </div>
-        <div class="lesson-card">
-            <div class="lesson-card-img">
-                <img src="http://www.montecaserosonline.com/galeria/dia.nac.d.las.personas.sordas.jpg" alt="">
-                <div class="cover"></div>
-                <h1>Abecedario</h1>
-            </div>
-            <div class="lesson-card-subheader">
-                <div class="lesson-card-advance">
-                    <p>10%</p>
-                </div>
-                <div class="lesson-card-test">
-                    <img src="https://image.flaticon.com/icons/png/512/243/243322.png" alt="">
-                    <p>Tomar examen</p>
-                </div>
-            </div>
-        </div>
-        <div class="lesson-card">
-            <div class="lesson-card-img">
-                <img src="http://www.montecaserosonline.com/galeria/dia.nac.d.las.personas.sordas.jpg" alt="">
-                <div class="cover"></div>
-                <h1>Abecedario</h1>
-            </div>
-            <div class="lesson-card-subheader">
-                <div class="lesson-card-advance">
-                    <p>10%</p>
+                    <p>{{(temary.resultado)? temary.resultado: '--'}}</p>
+                    <span>Nota</span>
                 </div>
                 <div class="lesson-card-test">
                     <img src="https://image.flaticon.com/icons/png/512/243/243322.png" alt="">

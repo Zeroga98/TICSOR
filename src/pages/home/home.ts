@@ -15,6 +15,7 @@ import { NewsPage } from '../news/news';
 })
 export class HomePage {
 
+  public course: any;
   public user: UserModel;
 
   constructor(
@@ -30,7 +31,8 @@ export class HomePage {
       this.user.get();
       this.courseService.getAll()
       .subscribe((data) => {
-        console.log(data);
+        this.course = data.result[0];
+        console.log(this.course);
       });
     }
   }

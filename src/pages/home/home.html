@@ -19,9 +19,9 @@
                 <div class="card-lesson-video">
                     <img src="assets/imgs/idea.svg" alt="">
                 </div>
-                <div class="card-lesson-description">
-                    <h1>Lecciones aprendidas</h1>
-                    <p class="lesson-avance">2 <span>/</span> 10</p>
+                <div class="card-lesson-description" *ngIf="course">
+                    <h1>{{course.curso_nombre}}</h1>
+                    <p class="lesson-avance">{{course.cursados}} <span>/</span> {{course.temarios}}</p>
                     <button ion-button clear color="light" outline (click)="openTemario()"> Continua tu aprendizaje</button>
                 </div>
             </ion-card>
