@@ -16,7 +16,6 @@ export class TopicPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController, private temaryService: TemaryService) {
     this.temary = navParams.get("temary");
-    console.log(this.temary);
   }
 
   presentActionSheet() {

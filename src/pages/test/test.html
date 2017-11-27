@@ -27,9 +27,9 @@
           </ion-slide>
         </ion-slides>
         <div class="test-lifes">
-          <ion-icon name="heart-outline"></ion-icon>
-          <ion-icon name="heart"></ion-icon>
-          <ion-icon name="heart"></ion-icon>
+          <ion-icon name="{{life >= 3? 'heart' : 'heart-outline'}}"></ion-icon>
+          <ion-icon name="{{life >= 2? 'heart' : 'heart-outline'}}"></ion-icon>
+          <ion-icon name="{{life >= 1? 'heart' : 'heart-outline'}}"></ion-icon>
         </div>
         <h2>{{questions[questionIndex].pregunta}}</h2>
       </div>
