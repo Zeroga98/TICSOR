@@ -22,7 +22,7 @@ export class PracticePage {
   }
 
   openTest(temary) {
-    this.navCtrl.setRoot(TestPage, { temary: temary });
+    this.navCtrl.push(TestPage, { temary: temary });
   }  
   
   startTest(temary) {

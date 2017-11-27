@@ -35,6 +35,7 @@ export class TestPage {
 		let responseCorrectId = this.responseCorrect();
 
 		if(this.questions[this.questionIndex].select != responseCorrectId){
+			//Respondio mal
 			this.life--;
 			if(this.life == 0){
 				//Perdio empieza de nuevo
