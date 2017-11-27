@@ -3,7 +3,7 @@ import { Http }    from '@angular/http';
 import { ApiService } from './api-service';
 
 @Injectable()
-export class AuthService {
+export class CourseService {
 
   data : any;
   http : any;
@@ -13,13 +13,8 @@ export class AuthService {
     this.data = null;
   }
 
-  login(names: string, lastnames: string, email: string, picture: string) {
-    return this.api.post('/user/login', {
-      nombres: names,
-      apellidos: lastnames,
-      correo: email,
-      foto: picture
-    });
+  getAll() {
+    return this.api.get('/course/get-all');
   }
 
   handleError(error) {

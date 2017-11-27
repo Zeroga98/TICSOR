@@ -8,6 +8,8 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
 
 import { UserModel } from '../../models/user.model';
 import { Oauth2Service } from '../../services/oauth2.service';
+import { AuthService } from '../../services/auth.service';
+import { TokenService } from '../../services/token-services';
 
 @Component({
   selector: 'page-login',
@@ -41,9 +43,11 @@ export class LoginPage {
     public nav: Nav,
     private platform: Platform,
     private oauth2Service: Oauth2Service,
+    private authService: AuthService,
     private network: Network,
     private appBrowser: InAppBrowser,
-    public events: Events
+    public events: Events,
+    private tokenService: TokenService
   ) {
   }
 
@@ -70,10 +74,15 @@ export class LoginPage {
         this.chairaLogin().then(success => {
           this.oauth2Service.getAccessToken(success.detail)
             .then(response => {
-              this.user.save(JSON.parse(response.scope)[0]);
-              this.events.publish('user:exist', this.user.get());
+              let scope = JSON.parse(response.scope)[0];
+              this.authService.login(scope.NOMBRES, scope.APELLIDOS, scope.CORREO, scope.FOTO)
+              .subscribe(token => {
+                this.user.save(scope);
+                this.tokenService.saveToken(token.token);
+                this.events.publish('user:exist', this.user.get());
 
-              this.nav.setRoot(HomePage);
+                this.nav.setRoot(HomePage);
+              }, error => console.log(error));
             })
             .catch(error => console.log(error))
 

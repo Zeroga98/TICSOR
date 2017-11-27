@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response, URLSearchParams } from '@angular/http';
-import { ENV } from '../environments/env.example';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -50,7 +49,7 @@ export class ApiService {
       'Content-Type': 'application/json'
     };
     if (this.tokenService.getToken()) {
-      headersConfig['Authorization'] = `${this.tokenService.getToken()}`;
+      headersConfig['Authorization'] = `Bearer ${this.tokenService.getToken()}`;
     }
     return new Headers(headersConfig);
   }

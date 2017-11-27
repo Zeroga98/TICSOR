@@ -39,7 +39,7 @@ export class TICSOR {
 
     events.subscribe('user:exist', (user) => {
       this.user = user;
-    }); 
+    });  
 
     this.pages = [
       { title: 'Home', component: HomePage },
@@ -53,9 +53,7 @@ export class TICSOR {
   }
 
   ngOnInit() {
-    if (!this.user.isUser()) {
-      this.nav.setRoot(LoginPage);
-    } else {
+    if (this.user.isUser()) {
       this.user.get();
     }
   }

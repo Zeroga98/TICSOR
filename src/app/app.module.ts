@@ -11,6 +11,8 @@ import { NewsPage } from '../pages/news/news';
 import { LoginPage } from '../pages/login/login';
 import { LessonsPage } from '../pages/lessons/lessons';
 import { Oauth2Service } from '../services/oauth2.service';
+import { AuthService } from '../services/auth.service';
+import { CourseService } from '../services/course.service';
 import { ApiService } from '../services/api-service';
 import { TokenService } from '../services/token-services';
 import { UtilProvider } from '../providers/util-provider';
@@ -64,6 +66,8 @@ import { TICSOR } from './app.component';
     ApiService,
     TokenService,
     Oauth2Service,
+    AuthService,
+    CourseService,
     UtilProvider,
     StringsProvider,
     SplashScreen,
