@@ -22,6 +22,8 @@ import { TopicPage } from '../pages/topic/topic';
 import { CoursePage } from '../pages/course/course';
 import { PracticePage } from '../pages/practice/practice';
 import { TestPage } from '../pages/test/test';
+import { AboutusPage } from '../pages/aboutus/aboutus';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -40,7 +42,8 @@ import { TICSOR } from './app.component';
     TopicPage,
     CoursePage,
     PracticePage,
-    TestPage
+    TestPage,
+    AboutusPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { TICSOR } from './app.component';
     TopicPage,
     CoursePage,
     PracticePage,
-    TestPage
+    TestPage,
+    AboutusPage
   ],
   providers: [
     GooglePlus,
@@ -83,6 +87,6 @@ export class AppModule {
     this.statusBar.styleLightContent();
     this.statusBar.styleBlackTranslucent();
     // set status bar to white
-    this.statusBar.backgroundColorByHexString('#002200'); 
+    this.statusBar.backgroundColorByHexString('#013E12'); 
   }
 }

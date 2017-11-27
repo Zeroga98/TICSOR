@@ -42,48 +42,24 @@
             <span>Noticias</span>
         </div>
         <ion-card style="margin: 10px 0; width:100%">
-                
-                  <ion-item class="not_margin" style="margin:0">
-                    <h3 style="font-weight:500;font-weight: 500;font-size: 18px;color: #17611b;" >Fuentes</h3>
-                  </ion-item>
-                
-                  <ion-card-content style="overflow-x: auto;">
-                      <div class="fuent">
-                        <div class="fuent__thum">
+
+            <ion-item class="not_margin new-header" style="margin:0">
+                <h3 style="font-weight:500;">Fuentes</h3>
+            </ion-item>
+            <ion-card-content style="overflow-x: auto;">
+                <div class="fuent">
+                    <div class="fuent__thum" *ngFor="let new of news">
+                        <a href="{{new.url}}">
                             <div class="thumbnail">
-                                <img src="assets/imgs/LogoUA.svg" class="portrait" alt="">
-                              </div>
-                              <h2>Uniamazonia</h2>
-                        </div>
-                        <div class="fuent__thum">
-                            <div class="thumbnail">
-                                <img src="assets/imgs/asorca logo.JPG" class="portrait" alt="">
-                              </div>
-                              <h2>Insor</h2>
-                        </div>
-                        <div class="fuent__thum">
-                            <div class="thumbnail">
-                                <img src="assets/imgs/descarga.jpeg" class="portrait" alt="">
-                              </div>
-                              <h2>Asorca</h2>
-                        </div>
-                        <div class="fuent__thum">
-                            <div class="thumbnail">
-                                <img src="assets/imgs/LogoUA.svg" class="portrait" alt="">
-                              </div>
-                              <h2>Masorca</h2>
-                        </div>
-                        <div class="fuent__thum">
-                          <div class="thumbnail">
-                              <img src="assets/imgs/descarga.jpeg" class="portrait" alt="">
+                                <img src="{{new.img}}" class="portrait" alt="">
                             </div>
-                            <h2>Asorca</h2>
-                      </div>
-                
-                     
-                            </div>
-                  </ion-card-content>
-                              
-                </ion-card>
+                            <h2>{{new.title}}</h2>
+                        </a>
+                    </div>
+
+                </div>
+            </ion-card-content>
+
+        </ion-card>
     </section>
 </ion-content>

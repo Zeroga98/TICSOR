@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>TICSOR</ion-title>
+        <ion-buttons end>
+            <button style="font-size: 1.8rem;" ion-button color="light" (click)="presentActionSheet()">
+              <ion-icon name="more"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background: #E5E5E5;">
+    <ion-card>
+        <ion-card-header class="header-title">
+            Misión
+        </ion-card-header>
+        <ion-card-content>
+            La organización TICSOR pretende facilitar y generar una herramienta tecnológica para disminuir el porcentaje poblacional de las personas que no conocen el lenguaje de señas en Colombia, generando un impacto positivo de inclusión de dicha población. </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header class="header-title">
+            Visión
+        </ion-card-header>
+        <ion-card-content>
+            TICSOR proyecta para el año 2020 ser una empresa líder en el desarrollo e implementación de las tecnologías para el aprendizaje del lenguaje de señas, brindando al usuario herramientas gratuitas y/o pagas que genere un aporte significativo a los futuros
+            clientes mediante módulos funcionales, versátiles y eficientes para el desarrollo del proceso enseñanza – aprendizaje. </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header class="header-title">
+            Objetivos
+        </ion-card-header>
+
+        <ion-list>
+            <ion-item>
+                <ion-icon name="checkmark-circle-outline" item-start></ion-icon>
+                Fortalecer el aprendizaje del lenguaje de señas a la comunidad de la Universidad de la Amazonia.
+            </ion-item>
+            <ion-item>
+                <ion-icon name="checkmark-circle-outline" item-start></ion-icon>
+                Fortificar los procesos de inclusión social en la Universidad de la Amazonia con la población con discapacidad auditiva.
+            </ion-item>
+            <ion-item>
+                <ion-icon name="checkmark-circle-outline" item-start></ion-icon>
+                Motivar a la comunidad Uniamazonia a conocer y aprender el lenguaje de señas.
+            </ion-item>
+        </ion-list>
+    </ion-card>
+    <a href="assets/test.pdf">
+        <button ion-button block icon-left class="btn-guide">
+          <img src="assets/imgs/pdf.svg" alt="">  
+          Guía de usuario
+      </button>
+    </a>
+    <div class="credits">
+        <p>TICSOR 2017 - Versión 1.0 </p>
+        <p>Laura Marcela Osorio Silva - Luis Andrés Vela Tovar</p>
+        <p>Ing. John Arley Garcia Quintero</p>
+        <p>Universidad de la Amazonia</p>
+    </div>
+</ion-content>

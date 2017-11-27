@@ -11,6 +11,8 @@ import { TopicPage } from '../pages/topic/topic';
 import { CoursePage } from '../pages/course/course';
 import { PracticePage } from '../pages/practice/practice';
 import { TestPage } from '../pages/test/test';
+import { AboutusPage } from '../pages/aboutus/aboutus';
+
 import { Oauth2Service } from '../services/oauth2.service';
 
 import { UserModel } from '../models/user.model';
@@ -23,7 +25,7 @@ export class TICSOR {
 
   rootPage: any = HomePage;
   user: UserModel;
-  pages: Array<{ title: string, component: any }>;
+  pages: Array<{ title: string, component: any, icon:  string}>;
   currentUser: UserModel;
 
   constructor(
@@ -42,13 +44,11 @@ export class TICSOR {
     });  
 
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Noticias', component: NewsPage },
-      { title: 'Temario', component: LessonsPage },
-      { title: 'Tema', component: TopicPage },
-      { title: 'Curso', component: CoursePage },
-      { title: 'Práctica', component: PracticePage },
-      { title: 'Test', component: TestPage }
+      { title: 'Inicio', component: HomePage, icon: 'home' },
+      { title: 'Temario', component: LessonsPage, icon: 'book' },
+      { title: 'Práctica', component: PracticePage, icon: 'school' },
+      { title: 'Código QR', component: PracticePage, icon: 'qr-scanner' },
+      { title: 'Nosotros', component: AboutusPage, icon: 'contact' }
     ];
   }
 

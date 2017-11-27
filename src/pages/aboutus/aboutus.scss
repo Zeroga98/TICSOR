@@ -1,0 +1,32 @@
+page-aboutus {
+    button {
+        background: #fff;
+    }
+    ion-card-content {
+        text-align: justify;
+    }
+    .header-title {
+        color: #014b15;
+        font-weight: bold;
+        font-size: large;
+    }
+    ion-label {
+        white-space: inherit;
+    }
+    ion-item {
+        font-size: small;
+        text-align: justify;
+    }
+    .btn-guide {
+        img {
+            width: 3em;
+            height: 2em;
+        }
+    }
+    .credits {
+        margin-top: 2em;
+        text-align: center;
+        line-height: .2em;
+        opacity: .5;
+    }
+}
