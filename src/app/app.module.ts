@@ -11,6 +11,10 @@ import { NewsPage } from '../pages/news/news';
 import { LoginPage } from '../pages/login/login';
 import { LessonsPage } from '../pages/lessons/lessons';
 import { Oauth2Service } from '../services/oauth2.service';
+import { ApiService } from '../services/api-service';
+import { TokenService } from '../services/token-services';
+import { UtilProvider } from '../providers/util-provider';
+import { StringsProvider } from '../providers/strings-provider';
 import { TopicPage } from '../pages/topic/topic';
 import { CoursePage } from '../pages/course/course';
 import { PracticePage } from '../pages/practice/practice';
@@ -57,7 +61,11 @@ import { TICSOR } from './app.component';
     InAppBrowser,
     Network,
     StatusBar,
+    ApiService,
+    TokenService,
     Oauth2Service,
+    UtilProvider,
+    StringsProvider,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
