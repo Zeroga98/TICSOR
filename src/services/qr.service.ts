@@ -14,7 +14,7 @@ export class QrService {
   }
 
   getQr(theme) {
-    return this.api.get(`/temary/get-qr/${ theme }`);
+    return this.api.get(`/qr/get-qr/${ theme }`);
   }
 
 

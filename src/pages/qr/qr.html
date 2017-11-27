@@ -8,23 +8,24 @@
 </ion-header>
 <ion-content>
     <div class="course-grid">
-        <div class="course-video-container">
+        <div class="course-video-container" *ngIf="content">
             <ion-slides pager class="slider" (ionSlideDidChange)="slideChanged()">
-                <ion-slide class="slider-page" >
-                    <img  src="http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg">
-                   <!--  <video id="video-{{content.id}}" *ngIf="content.multimedia_tipo == 1" width="100%" >
-                      <source src="{{content.url}}" type="video/mp4">
+                <ion-slide class="slider-page" *ngFor="let i = index; let item of content.images">
+                    <img *ngIf="item.indexOf('mp4') == -1" src="{{item}}">
+
+                    <video *ngIf="item.indexOf('mp4') != -1" id="video-{{i}}" width="100%" >
+                      <source src="{{item}}" type="video/mp4">
                     Your browser does not support the video tag.
-                    </video> -->
-                <!--     <ion-icon *ngIf="content.multimedia_tipo == 1" name="{{reproduce}}" (click)="reproduceVideo(content.id)"></ion-icon> -->
+                    </video>
+                    <ion-icon *ngIf="item.indexOf('mp4') != -1" name="{{reproduce}}" (click)="reproduceVideo(i)"></ion-icon> 
                 </ion-slide>
 
             </ion-slides>
         </div>
          <div class="course-explanation-content">
-            <div class="course-explanaton" *ngIf="contentSelected">
-                <h1>Prueba</h1>
-                <p>Asi se dice </p>
+            <div class="course-explanaton" *ngIf="content">
+                <h1>{{content.nombre}}</h1>
+                <p>{{content.descripcion}}</p>
             </div>
         </div> 
     </div>

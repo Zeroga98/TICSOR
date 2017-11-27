@@ -12,6 +12,7 @@ import { CoursePage } from '../pages/course/course';
 import { PracticePage } from '../pages/practice/practice';
 import { TestPage } from '../pages/test/test';
 import { AboutusPage } from '../pages/aboutus/aboutus';
+import { QrPage } from '../pages/qr/qr';
 
 import { Oauth2Service } from '../services/oauth2.service';
 
@@ -30,6 +31,7 @@ export class TICSOR {
   pages: Array<{ title: string, component: any, icon:  string}>;
   currentUser: UserModel;
   scannedCode :string;
+
   constructor(
     public platform: Platform,
     public statusBar: StatusBar,
@@ -51,7 +53,6 @@ export class TICSOR {
       { title: 'Inicio', component: HomePage, icon: 'home' },
       { title: 'Temario', component: LessonsPage, icon: 'book' },
       { title: 'Práctica', component: PracticePage, icon: 'school' },
-      { title: 'Código QR', component: PracticePage, icon: 'qr-scanner' },
       { title: 'Nosotros', component: AboutusPage, icon: 'contact' }
     ];
   }
@@ -62,7 +63,7 @@ export class TICSOR {
     this.barcodeScanner.scan().then(barcodeData => {
       this.scannedCode= barcodeData.text;
       console.log(this.scannedCode);
-      
+      this.nav.setRoot(QrPage, { theme: this.scannedCode });
     })
     
   }

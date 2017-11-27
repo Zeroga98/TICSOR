@@ -13,7 +13,7 @@ export class QrPage {
   reproduce;
   public content;
   public theme;
-  public contentSelected;
+
   @ViewChild(Slides) slides: Slides; 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private qrService: QrService) {
@@ -21,10 +21,11 @@ export class QrPage {
 
      this.theme = navParams.get("theme");
 
-    qrService.getQr(this.theme.id)
+    qrService.getQr(this.theme)
       .subscribe((data) => {
-        this.content = data.result;
-        this.contentSelected = this.content[0];
+        console.log(data.result);
+        this.content = data.result[0];
+        this.content.images = JSON.parse(this.content.images);
       }); 
   }
 

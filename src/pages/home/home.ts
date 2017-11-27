@@ -62,6 +62,7 @@ export class HomePage {
   scanCode(){
     this.barcodeScanner.scan().then(barcodeData => {
       this.scannedCode= barcodeData.text;
+      console.log(barcodeData.text);
       this.navCtrl.setRoot(QrPage,{
         theme:  this.scannedCode
       });
