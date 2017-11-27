@@ -1,0 +1,46 @@
+page-test {
+    .test-card {
+        background: #fff;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .test-header {
+        position: relative;
+        .test-lifes {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            ion-icon {
+                color: #DB0000;
+            }
+        }
+        .question-words {
+            padding: 3em;
+        }
+        h2 {
+            margin-top: -.2em;
+            text-align: center;
+            padding: .5em;
+        }
+    }
+    .test-question {
+        background-color: #fff;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        .answer {
+            text-align: center;
+        }
+        img {
+            width: 7em;
+            height: 7em;
+        }
+        .selected {
+            opacity: .5;
+        }
+    }
+    .grid-imgs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 1em;
+        grid-row-gap: .5em;
+        grid-template-rows: 1fr;
+    }
+}

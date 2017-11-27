@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+  </button>
+        <ion-title>TicSor</ion-title>
+        <ion-buttons end (click)="startTest()">
+            <button style="font-size: 1.8rem;" ion-button color="light" (click)="goToProfile()">
+              <ion-icon name="heart"></ion-icon>
+          </button>
+            <button style="font-size: 1.8rem;" ion-button color="light" (click)="btnSearch()">
+              <ion-icon name="search"></ion-icon>
+          </button>
+            <button style="font-size: 1.8rem;" ion-button color="light" (click)="presentActionSheet()">
+              <ion-icon name="more"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding style="background: #E5E5E5;">
+    <div class="test-container">
+        <div class="test-header shadow-box" padding>
+            <div class="h2-ribbon">
+                <h2>¿Listo para probar tus conocimientos?</h2>
+            </div>
+            <p>Selecciona una unidad y responde correctamente las preguntas para certificarte.</p>
+        </div>
+        <div class="test-modules shadow-box">
+            <ion-list>
+                <ion-item>
+                    <ion-thumbnail item-start>
+                        <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg">
+                    </ion-thumbnail>
+                    <h2>Título tema</h2>
+                    <p>73% completado</p>
+                    <button ion-button icon-left outline item-end (click)="startTest()">
+                        <ion-icon name="medal"></ion-icon>
+                        Certificar
+                      </button>
+                </ion-item>
+                <ion-item class="test-complete">
+                    <div class="complete-mark">Completado</div>
+                    <ion-thumbnail item-start>
+                        <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg">
+                    </ion-thumbnail>
+                    <h2>Título tema</h2>
+                    <p></p>
+                    <button ion-button icon-left outline item-end (click)="startTest()">
+                        <ion-icon name="ribbon"></ion-icon>
+                        Certificado
+                      </button>
+                </ion-item>
+                <ion-item>
+                    <ion-thumbnail item-start>
+                        <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg">
+                    </ion-thumbnail>
+                    <h2>Título tema</h2>
+                    <p>73% completado</p>
+                    <button ion-button icon-left outline item-end (click)="startTest()">
+                        <ion-icon name="medal"></ion-icon>
+                        Certificar
+                      </button>
+                </ion-item>
+                <ion-item>
+                    <ion-thumbnail item-start>
+                        <img src="http://po-krasivi.net/wp-content/uploads/2017/09/kutre.jpg">
+                    </ion-thumbnail>
+                    <h2>Título tema</h2>
+                    <p>73% completado</p>
+                    <button ion-button icon-left outline item-end (click)="startTest()">
+                        <ion-icon name="medal"></ion-icon>
+                        Certificar
+                      </button>
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+</ion-content>

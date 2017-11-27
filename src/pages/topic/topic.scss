@@ -1,25 +1,65 @@
 page-topic {
-    .topic-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
-    }
-    .text-center {
+    .topic-content {
         text-align: center;
+        margin-top: 1em;
     }
-    .card-md+ion-card {
-        margin-top: 10px!important;
+    ion-card-content b {
+        font-size: large;
+        margin-bottom: .3em!important;
     }
-    ion-card {
-        img {
-            height: 6em;
-            width: 100%;
-        }
-        p {
-            font-size: smaller;
-        }
+    ion-card-content p {
+        margin: 1.2em!important;
     }
-    .card-content-md {
-        padding: 2px;
+    ion-badge {
+        padding: .6em;
+    }
+    .ribbon {
+        font-size: 1.2em !important;
+        /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+        width: 70%;
+        position: relative;
+        background: #65B168;
+        color: #fff;
+        text-align: center;
+        padding: .5em 1em;
+        /* Adjust to suit */
+        margin: 1em auto 2em;
+        /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+    }
+    .ribbon:before,
+    .ribbon:after {
+        content: "";
+        position: absolute;
+        display: block;
+        bottom: -1em;
+        border: 1.5em solid #43a047;
+        z-index: -1;
+    }
+    .ribbon:before {
+        left: -2em;
+        border-right-width: 1.5em;
+        border-left-color: transparent;
+    }
+    .ribbon:after {
+        right: -2em;
+        border-left-width: 1.5em;
+        border-right-color: transparent;
+    }
+    .ribbon .ribbon-content:before,
+    .ribbon .ribbon-content:after {
+        content: "";
+        position: absolute;
+        display: block;
+        border-style: solid;
+        border-color: #00701a transparent transparent transparent;
+        bottom: -1em;
+    }
+    .ribbon .ribbon-content:before {
+        left: 0;
+        border-width: 1em 0 0 1em;
+    }
+    .ribbon .ribbon-content:after {
+        right: 0;
+        border-width: 1em 1em 0 0;
     }
 }

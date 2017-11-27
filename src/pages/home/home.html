@@ -3,14 +3,8 @@
         <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-        <ion-title>TicSor</ion-title>
+        <ion-title>TICSOR</ion-title>
         <ion-buttons end>
-            <button style="font-size: 1.8rem;" ion-button color="light" (click)="goToProfile()">
-              <ion-icon name="heart"></ion-icon>
-          </button>
-            <button style="font-size: 1.8rem;" ion-button color="light" (click)="btnSearch()">
-              <ion-icon name="search"></ion-icon>
-          </button>
             <button style="font-size: 1.8rem;" ion-button color="light" (click)="presentActionSheet()">
               <ion-icon name="more"></ion-icon>
           </button>
@@ -23,24 +17,23 @@
         <div>
             <ion-card class="card-lesson">
                 <div class="card-lesson-video">
-                    <img src="../../assets/imgs/video.jpg" alt="">
-                    <ion-icon name="play"></ion-icon>
+                    <img src="assets/imgs/idea.svg" alt="">
                 </div>
                 <div class="card-lesson-description">
-                    <h1>Deletreando ando</h1>
-                    <p>Leccion 2</p>
-                    <p>Abecedario</p>
+                    <h1>Lecciones aprendidas</h1>
+                    <p class="lesson-avance">2 <span>/</span> 10</p>
+                    <button ion-button clear color="light" outline (click)="openTemario()"> Continua tu aprendizaje</button>
                 </div>
             </ion-card>
         </div>
         <div class="cards-grid">
             <ion-card class="card-link">
-                <img src="./../../../assets/imgs/comunicate.svg" alt="">
-                <h2>Marcadores</h2>
+                <img src="assets/imgs/qr.svg" alt="">
+                <h2>Código QR</h2>
             </ion-card>
             <ion-card class="card-link">
-                <img src="./../../../assets/imgs/icon.svg" alt="">
-                <h2>Comunícate</h2>
+                <img src="assets/imgs/about.svg" alt="">
+                <h2>Nosotros</h2>
             </ion-card>
         </div>
     </section>
@@ -48,24 +41,49 @@
         <div class="divider">
             <span>Noticias</span>
         </div>
-        <ion-card>
-            <ion-item>
-                <ion-avatar item-start>
-                    <img src="assets/imgs/descarga.jpeg">
-                </ion-avatar>
-                <p>Instituto nacional de sordos</p>
-            </ion-item>
-            <img src="img/advance-card-bttf.png">
-            <ion-card-content>
-                <h2 style="font-weight:500; font-size:20px">Noticias sobre el lenguaje de señas</h2>
-                <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-            </ion-card-content>
-        </ion-card>
-        <ion-card>
-            <button ion-item>
-                <ion-icon name="arrow-round-forward" item-start></ion-icon>
-                Más noticias
-              </button>
-        </ion-card>
+        <ion-card style="margin: 10px 0; width:100%">
+                
+                  <ion-item class="not_margin" style="margin:0">
+                    <h3 style="font-weight:500;font-weight: 500;font-size: 18px;color: #17611b;" >Fuentes</h3>
+                  </ion-item>
+                
+                  <ion-card-content style="overflow-x: auto;">
+                      <div class="fuent">
+                        <div class="fuent__thum">
+                            <div class="thumbnail">
+                                <img src="assets/imgs/LogoUA.svg" class="portrait" alt="">
+                              </div>
+                              <h2>Uniamazonia</h2>
+                        </div>
+                        <div class="fuent__thum">
+                            <div class="thumbnail">
+                                <img src="assets/imgs/asorca logo.JPG" class="portrait" alt="">
+                              </div>
+                              <h2>Insor</h2>
+                        </div>
+                        <div class="fuent__thum">
+                            <div class="thumbnail">
+                                <img src="assets/imgs/descarga.jpeg" class="portrait" alt="">
+                              </div>
+                              <h2>Asorca</h2>
+                        </div>
+                        <div class="fuent__thum">
+                            <div class="thumbnail">
+                                <img src="assets/imgs/LogoUA.svg" class="portrait" alt="">
+                              </div>
+                              <h2>Masorca</h2>
+                        </div>
+                        <div class="fuent__thum">
+                          <div class="thumbnail">
+                              <img src="assets/imgs/descarga.jpeg" class="portrait" alt="">
+                            </div>
+                            <h2>Asorca</h2>
+                      </div>
+                
+                     
+                            </div>
+                  </ion-card-content>
+                              
+                </ion-card>
     </section>
 </ion-content>

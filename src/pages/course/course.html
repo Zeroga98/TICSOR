@@ -1,19 +1,47 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>TicSor</ion-title>
+        <ion-buttons end>
+            <button style="font-size: 1.8rem;" ion-button color="light" (click)="goToProfile()">
+                <ion-icon name="heart"></ion-icon>
+            </button>
+            <button style="font-size: 1.8rem;" ion-button color="light" (click)="btnSearch()">
+                <ion-icon name="search"></ion-icon>
+            </button>
+            <button style="font-size: 1.8rem;" ion-button color="light" (click)="presentActionSheet()">
+                <ion-icon name="more"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
 <ion-content>
     <div class="course-grid">
         <div class="course-video-container">
-            <div class="course-video-content">
-                <div class="course-video">
-                    <img src="../../assets/imgs/modelo.png" alt="">
-                    <!-- Aqui va el video, reemplazando la imagen-->
+            <ion-slides pager class="slider">
+                <ion-slide style="background-color: green" class="slider-page">
+                    <h2>Video 1</h2>
                     <ion-icon name="{{reproduce}}" (click)="reproduceVideo()"></ion-icon>
-                </div>
-            </div>
+                </ion-slide>
+
+                <ion-slide style="background-color: blue">
+                    <h2>video 2</h2>
+                </ion-slide>
+
+                <ion-slide style="background-color: red">
+                    <h2>Video 3</h2>
+                </ion-slide>
+
+            </ion-slides>
         </div>
         <div class="course-explanation-content">
             <div class="course-explanaton">
-                <h1>Saludo de bienvenida</h1>
-                <p>Descripción del tema</p>
+                <h1>Tema</h1>
+                <p>pequeña explicación</p>
             </div>
+            <button ion-button color="light" outline (click)="showConfirm()" class="test-btn">Tomar examen</button>
         </div>
     </div>
 </ion-content>

@@ -2,57 +2,57 @@ page-home {
     .cards-links {
         .card-lesson {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 2fr 3fr;
             grid-column-gap: 1em;
             grid-template-rows: 1fr;
-            background-color: #4CB976;
+            background-color: #38783e;
             .card-lesson-video {
-                position: relative;
+                width: 8em;
+                margin: 0 auto;
                 text-align: center;
                 img {
                     padding: .5em;
                     border-radius: 5px;
                 }
-                ion-icon {
-                    position: absolute;
-                    color: #f5f5f5;
-                    font-size: xx-large;
-                    margin: auto;
-                    top: 35%;
-                    text-shadow: 0 0 18px rgba(0, 0, 0, 0.35);
-                }
             }
             .card-lesson-description {
-                padding-top: 1em;
-                padding-right: 1em;
+                text-align: center;
+                padding-top: 1.5em;
                 h1 {
                     color: #f5f5f5;
                     font-size: large;
                     font-weight: bold;
                 }
+                button {
+                    font-size: small;
+                    text-transform: none;
+                    border: 1px dashed #ccc;
+                }
                 p {
                     color: #f5f5f5;
-                    font-size: small;
+                }
+                .lesson-avance {
+                    color: #f5f5f5;
+                    text-align: center;
+                    font-size: large;
                 }
             }
         }
         .cards-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-column-gap: 1em;
+            grid-column-gap: .5em;
             grid-template-rows: 1fr;
             .card-md+ion-card {
                 margin-top: 10px!important;
             }
             .card-link {
-                background-color: #4CB976;
+                background-color: #38783e;
                 text-align: center;
                 padding: 1em;
                 img {
-                    width: 3em;
+                    width: 4em;
                     margin: auto;
-                    background-blend-mode: screen;
-                    mix-blend-mode: overlay;
                 }
                 h2 {
                     color: #f5f5f5;
@@ -71,5 +71,49 @@ page-home {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
+    }
+    .thumbnail {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+      }
+      .thumbnail img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        border-radius: 2px;
+        width: auto;
+        -webkit-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+      }
+      .thumbnail img.portrait {
+        width: 90%;
+        height: 4.9em;
+      }
+      .fuent{
+        display: inline-flex;
+        overflow-x: auto;
+        padding-bottom:7px;
+      }
+      .fuent__thum{
+          text-align: center;
+      }
+      .fuent__thum > h2{
+        margin: 0px 0;
+        font-size: 13px;
+        font-weight: normal;
+        color: #333;
+      }
+    .padd .scroll-content{
+        padding: 6px 16px;
+    }
+    .not_margin ion-label{
+        margin: 0px;
+    }
+    .btm-line{
+        border-bottom:1px solid #ccc
     }
 }
