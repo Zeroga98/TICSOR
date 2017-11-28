@@ -1,11 +1,13 @@
 page-login {
-    .submit-btn{
+    .submit-btn {
         background-color: #ffffff;
         color: #333;
         padding: 23px;
+        padding-left: 56px;
     }
     .bkg-login {
-        background: linear-gradient(-45deg, rgba(4, 136, 74, 0.47), rgba(4, 136, 74, 0.47)), url(./../../../assets/imgs/modelo.png) no-repeat center center fixed;
+        //        background: linear-gradient(-45deg, rgba(4, 136, 74, 0.47), rgba(4, 136, 74, 0.47)), url(./../../../assets/imgs/modelo.png) no-repeat center center fixed;
+        background: #007b00;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -34,7 +36,6 @@ page-login {
             margin-top: -25%;
         }
         & img {
-            opacity: .7;
             filter: inherit;
         }
         & * {
@@ -88,5 +89,8 @@ page-login {
     }
     .login-align--right {
         text-align: right;
+    }
+    form {
+        margin-top: 3em;
     }
 }
