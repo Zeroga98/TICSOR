@@ -1,24 +1,24 @@
 <ion-content class="bkg-login" padding>
-  <ion-row class="logo-row top-3em">
-    <ion-col style="padding-top: 249px;">
-      <ion-item class="logo-login">
-        <h2 style="font-weight:800">Bienvenido</h2>
-        <img style="max-width: 50%;    filter: invert(97%);" src="assets/imgs/ticsor.svg" />
-      </ion-item>
-    </ion-col>
-  </ion-row>
-  <form #registerForm="ngForm">
-    <!--<ion-row>
+    <ion-row class="logo-row top-3em">
+        <ion-col style="padding-top: 50%;">
+            <ion-item class="logo-login">
+                <h2 style="font-weight:800; white-space: normal;">Bienvenido a Ticsor</h2>
+                <img style="max-width: 60%; filter: invert(100%); margin-top: 2em;" src="assets/imgs/ticsor.svg" />
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <form #registerForm="ngForm">
+        <!--<ion-row>
       <ion-col class="signup-col">
         <button ion-button class="submit-btn" color="red" full type="submit">
           <img style="position:absolute; left:28px" width="38px" src="assets/imgs/google.png" /> Iniciar sesión con Google</button>
       </ion-col>
     </ion-row>-->
-    <ion-row>
-      <ion-col class="signup-col">
-        <button ion-button class="submit-btn" (click)="login()" color="red" full type="submit">
-          <img style="position:absolute; left:28px" width="38px" src="assets/imgs/LogoUA.svg" /> Iniciar sesión con Chaira</button>
-      </ion-col>
-    </ion-row>
-  </form>
+        <ion-row>
+            <ion-col class="signup-col" style="text-align: center;">
+                <button ion-button class="submit-btn" (click)="login()" color="red" full type="submit">
+          <img style="position:absolute; left:28px;" width="38px" src="assets/imgs/LogoUA.svg" /> Iniciar sesión con Chaira</button>
+            </ion-col>
+        </ion-row>
+    </form>
 </ion-content>
