@@ -17,6 +17,10 @@ export class EvaluateService {
     return this.api.get(`/evaluate/get-question/${evaluate_id}`);
   }
 
+  getUserEvaluate() {
+    return this.api.get(`/evaluate/get-user-evaluate`);
+  }
+
   response(email, evaluate_id, response){
     return this.api.post(`/evaluate/response`, {
       email: email, 

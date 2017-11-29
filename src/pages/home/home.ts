@@ -42,13 +42,13 @@ export class HomePage {
         
       ];
     this.user = new UserModel();
-/*
+
     this.courseService.getAll()
       .subscribe((data) => {
         this.course = data.result[0];
         console.log(this.course);
-    });*/
-
+    });
+      /*
     if (!this.user.isUser()) {
       this.navCtrl.setRoot(LoginPage);
     } else { 
@@ -58,7 +58,7 @@ export class HomePage {
         this.course = data.result[0];
         console.log(this.course);
       });
-    }
+    }*/
   }
   scanCode(){
     this.barcodeScanner.scan().then(barcodeData => {

@@ -7,7 +7,6 @@
     </ion-navbar>
 </ion-header>
 
-
 <ion-content padding style="background: #E5E5E5;">
     <div class="test-container" *ngIf="course">
         <div class="test-header shadow-box" padding>
@@ -15,9 +14,10 @@
                 <h2>¿Listo para probar tus conocimientos?</h2>
             </div>
             <p>Selecciona una unidad y responde correctamente las preguntas para certificarte.</p>
-            <div class="btn-certificate vibrate-1" *ngIf="course.cursados == course.temarios" (click)="openEvaluate()">
+            <div class="btn-certificate" [ngClass]="{ 'vibrate-1' : !evaluate.evaluacion_usu_id}" *ngIf="course.cursados == course.temarios || evaluate" (click)="openEvaluate()">
                 <img src="assets/imgs/diploma.svg" alt="">
-                <p>Certifícate ahora</p>
+                <p>{{(evaluate.evaluacion_usu_id)? 'Aprobado': 'Certifícate ahora'}}</p>
+                <a target="_blank" href="https://firebasestorage.googleapis.com/v0/b/ticsor-9b4db.appspot.com/o/Certificado.pdf?alt=media&token=47b33e1a-4a66-4a4a-826a-19ae93b79a0c" *ngIf="evaluate && evaluate.evaluacion_usu_id" class="download-certificate">Descarga tu certificado aqui</a>
             </div>
 
         </div>
