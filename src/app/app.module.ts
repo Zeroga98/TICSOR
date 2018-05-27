@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { Network } from '@ionic-native/network';
+import { Firebase } from '@ionic-native/firebase';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { HttpModule }    from '@angular/http';
 
@@ -73,6 +74,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
   ],
   providers: [
     GooglePlus,
+    Firebase,
     InAppBrowser,
     Network,
     StatusBar,

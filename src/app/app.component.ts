@@ -26,7 +26,7 @@ import { AlertController } from 'ionic-angular';
 export class TICSOR {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any;
   user: UserModel;
   pages: Array<{ title: string, component: any, icon:  string}>;
   currentUser: UserModel;
@@ -69,7 +69,10 @@ export class TICSOR {
   }
   ngOnInit() {
     if (this.user.isUser()) {
+      this.rootPage = HomePage;
       this.user.get();
+    } else {
+      this.rootPage = LoginPage;
     }
   }
 

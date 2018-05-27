@@ -11,7 +11,7 @@ import { Network } from '@ionic-native/network';
 @Injectable()
 export class ApiService {
 
-  private api_base_url = 'http://cd90ac5f.ngrok.io';
+  private api_base_url = 'http://1d595a08.ngrok.io';
 	private wifi: boolean = true;
 
   constructor(
@@ -68,12 +68,34 @@ export class ApiService {
       .map((res: Response) => res.json());
   }
 
+  getComplete(path: string, params: URLSearchParams = new URLSearchParams()): Observable<any> {
+    return this.http.get(`${path}`,
+      { headers: this.setHeaders(), search: params }
+    )
+      .catch(this.formatErrors)
+      .map((res: Response) => res.json());
+  }
+
   put(path: string, body: Object = {}): Observable<any> {
     return this.http.put(`${this.api_base_url}${path}`, JSON.stringify(body),
       { headers: this.setHeaders() }
     )
       .catch(this.formatErrors)
       .map((res: Response) => res.json());
+  }
+
+  postComplete(path: string, body): Observable<any> {
+    return this.http.post(`${path}`, body, { headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }) }
+    )
+      .catch(this.formatErrors)
+      .map(res => {
+        if (res.status < 200 || res.status >= 300) {
+          throw new Error('La petición ha fallado ' + res.status);
+        }
+        else {
+          return res.json();
+        }
+      })
   }
 
   post(path: string, body: Object = {}): Observable<any> {
