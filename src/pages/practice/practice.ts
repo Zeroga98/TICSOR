@@ -33,7 +33,7 @@ export class PracticePage {
     this.courseService.getAll()
       .subscribe((data) => {
         this.course = data.result[0];
-        this.course.cursados = 7;
+        //this.course.cursados = 7;
       });
   }
 
