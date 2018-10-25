@@ -11,7 +11,7 @@ import { Network } from '@ionic-native/network';
 @Injectable()
 export class ApiService {
 
-  private api_base_url = 'http://191.102.85.226:3310';
+  private api_base_url = 'http://191.102.85.228:3312';
 	private wifi: boolean = true;
 
   constructor(
@@ -55,7 +55,7 @@ export class ApiService {
   }
 
   private formatErrors(error: any) {
-    return Observable.throw(error.json());
+    return Observable.throw(error);
   }
 
   /** Métodos Http que hacen peticiones a la api y retornan observables */

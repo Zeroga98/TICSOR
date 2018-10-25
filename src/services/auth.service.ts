@@ -38,6 +38,6 @@ export class AuthService {
 
   handleError(error) {
     console.log(error);
-    return error.json().message || 'Server error, please try again later';
+    return error || 'Server error, please try again later';
   }
 }

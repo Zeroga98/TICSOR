@@ -169,6 +169,7 @@ export class LoginPage {
       let browserRef = this.appBrowser.create(api_url, "_blank", this.options);
       let closeSuccess = false;
       browserRef.on("loadstart").subscribe((event) => {
+        console.log(event.url);
         if ((event.url).indexOf("http://localhost/callback") === 0) {
           closeSuccess = true;
           browserRef.close();
