@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Platform, Events } from 'ionic-angular';
+import { NavController, Platform, Events, LoadingController } from 'ionic-angular';
 import { App, Nav } from 'ionic-angular';
 import { HomePage } from '../../pages/home/home';
 import { Network } from '@ionic-native/network';
@@ -40,6 +40,7 @@ export class LoginPage {
   private client_id = "170354734277-oc83im08kql9pfnuq1cv7n7g4g91p8nt.apps.googleusercontent.com";
   private client_secret = "ovXDzuvG4uv8wWhwHvenmAWx";
   private redirect_uri = "http://localhost/callback";
+  public loading: any;
 
   constructor(
     public navCtrl: NavController,
@@ -53,7 +54,8 @@ export class LoginPage {
     public events: Events,
     private tokenService: TokenService,
     private firebase: Firebase,
-    private googlePlus: GooglePlus
+    private googlePlus: GooglePlus,
+    private loadingCtrl: LoadingController
   ) { }
 
   ionViewDidLoad() {
@@ -65,41 +67,41 @@ export class LoginPage {
     //disconnectSubscription.unsubscribe();
     this.network.onConnect().subscribe(() => {
       setTimeout(() => {
-        if (this.network.type === 'wifi') {
+        if (this.network.type === 'wifi')
           this.wifi = true;
-        }
       }, 3000);
     });
   }
 
   public loginGoogle() {
-    if (this.wifi) {
+    if (this.wifi && !this.loading) {
+      this.presentLoading();
       this.platform.ready().then(() => {
         this.googleLogin().then(code => {
           this.authService.getTokenGoogle(code.detail, this.client_id, this.client_secret, this.redirect_uri)
           .subscribe(data => {
             localStorage.setItem("access_token", data.access_token);
             localStorage.setItem("id_token", data.id_token);
-            console.log("Profile google");
             this.authService.getProfileGoogle(data.access_token)
             .subscribe(user => {
-              console.log(user);
               let scope = {
                 NOMBRES: user.given_name,
                 APELLIDOS: user.family_name,
                 CORREO: user.email,
                 FOTO: user.picture
               };
-              console.log("Logear");
               this.authService.login(scope.NOMBRES, scope.APELLIDOS, scope.CORREO, scope.FOTO)
                 .subscribe(token => {
-                  console.log(token);
                   this.user.save(scope);
                   this.tokenService.saveToken(token.token);
                   this.events.publish('user:exist', this.user.get());
 
+                  this.dissmissLoading();
                   this.nav.setRoot(HomePage);
-                }, error => console.log(error));
+                }, error => {
+                  console.log(error)
+                  this.dissmissLoading();
+                });
             });
           });
         });
@@ -137,7 +139,8 @@ export class LoginPage {
   }
 
   login() {
-    if (this.wifi) {
+    if (this.wifi && !this.loading) {
+      this.presentLoading();
       this.platform.ready().then(() => {
         this.chairaLogin().then(success => {
           this.oauth2Service.getAccessToken(success.detail)
@@ -148,14 +151,18 @@ export class LoginPage {
                   this.user.save(scope);
                   this.tokenService.saveToken(token.token);
                   this.events.publish('user:exist', this.user.get());
-
+                  this.dissmissLoading();
+                  this.loading = undefined;
                   this.nav.setRoot(HomePage);
-                }, error => console.log(error));
+                }, error => {
+                  this.dissmissLoading();
+                });
             })
-            .catch(error => console.log(error))
-
+            .catch(error => {
+              this.dissmissLoading();
+            });
         }, (error) => {
-          console.log(error);
+          this.dissmissLoading();
         });
       });
     } else {
@@ -169,7 +176,6 @@ export class LoginPage {
       let browserRef = this.appBrowser.create(api_url, "_blank", this.options);
       let closeSuccess = false;
       browserRef.on("loadstart").subscribe((event) => {
-        console.log(event.url);
         if ((event.url).indexOf("http://localhost/callback") === 0) {
           closeSuccess = true;
           browserRef.close();
@@ -191,6 +197,16 @@ export class LoginPage {
         }
       });
     });
+  }
+
+  private presentLoading() {
+    this.loading = this.loadingCtrl.create({ content: "Cargando..."});
+    this.loading.present();
+  }
+
+  private dissmissLoading(){
+    this.loading.dismiss();
+    this.loading = undefined;
   }
 
 }

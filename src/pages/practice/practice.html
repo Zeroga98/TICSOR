@@ -14,7 +14,7 @@
                 <h2>¿Listo para probar tus conocimientos?</h2>
             </div>
             <p>Selecciona una unidad y responde correctamente las preguntas.</p>
-            <div class="btn-certificate" [ngClass]="{ 'vibrate-1' : !evaluate.evaluacion_usu_id}" *ngIf="course.cursados == course.temarios || evaluate" (click)="openEvaluate()">
+            <div class="btn-certificate" [ngClass]="{ 'vibrate-1' : !evaluate.evaluacion_usu_id}" *ngIf="course.cursados == percentage_note || evaluate.evaluacion_usu_id" (click)="openEvaluate()">
                 <img src="assets/imgs/diploma.svg" alt="">
                 <p>{{(evaluate.evaluacion_usu_id)? 'Aprobado': 'Prueba final'}}</p>
                 <!--<a target="_blank" href="https://firebasestorage.googleapis.com/v0/b/ticsor-9b4db.appspot.com/o/Certificado.pdf?alt=media&token=47b33e1a-4a66-4a4a-826a-19ae93b79a0c" *ngIf="evaluate && evaluate.evaluacion_usu_id" class="download-certificate">Descarga tu certificado aqui</a>-->

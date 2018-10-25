@@ -15,25 +15,37 @@ export class PracticePage {
   public temary;
   public course;
   public evaluate: any = {};
+  public percentage_note;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private temaryService: TemaryService, private courseService: CourseService, private evaluateService: EvaluateService) {
-    this.temaryService.getAll(1)
-    .subscribe((data)=> {
-      this.temary = data.result;
-    }, (error) => {
-      console.log(error);
-    });
+    this.getTemaryAll();
+    this.getCourseAll();
+    this.getUserEvaluate();
+  }
 
+  private getTemaryAll(){
+    this.temaryService.getAll(1)
+      .subscribe((data)=> {
+        this.temary = data.result;
+      }, (error) => {
+        console.log(error);
+      });
+  }
+
+  private getCourseAll(){
+    this.courseService.getAll()
+      .subscribe((data) => {
+        this.course = data.result[0];
+        this.percentage_note = Math.floor(this.course.temarios * 0.8);
+        //this.course.cursados = 7;
+      });
+  }
+
+  private getUserEvaluate(){
     this.evaluateService.getUserEvaluate()
       .subscribe((data) => {
         this.evaluate = data.result[0]; 
         console.log(this.evaluate);
-      });
-
-    this.courseService.getAll()
-      .subscribe((data) => {
-        this.course = data.result[0];
-        //this.course.cursados = 7;
       });
   }
 
