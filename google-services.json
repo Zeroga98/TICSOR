@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "170354734277",
+    "firebase_url": "https://ticsor-9b4db.firebaseio.com",
+    "project_id": "ticsor-9b4db",
+    "storage_bucket": "ticsor-9b4db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170354734277:android:4c700c099b7fcdaa",
+        "android_client_info": {
+          "package_name": "io.ionic.ticsor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "170354734277-rdgghkmfo948204kctr1dv41p59r98vu.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "170354734277-u81oai6ulkhtkiq1voref0171g65vemm.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "170354734277-462gu4b35eg2dnubucsk3vnt54dkqqt2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.ticsor",
+            "certificate_hash": "10b9420d55f298745058511c428d0ff2a84df8f8"
+          }
+        },
+        {
+          "client_id": "170354734277-l6kqntdbrtrsmo0ot7a4b9kqts412ans.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "170354734277-l6kqntdbrtrsmo0ot7a4b9kqts412ans.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhjUktRgdDjT8Nx9ylL4rvId-3A-VmJdA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "170354734277-rdgghkmfo948204kctr1dv41p59r98vu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

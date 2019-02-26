@@ -43,13 +43,13 @@ export class HomePage {
       ];
     this.user = new UserModel();
 
+    this.user.get();
     this.courseService.getAll()
       .subscribe((data) => {
         this.course = data.result[0];
-        console.log(this.course);
     });
-      /*
-    if (!this.user.isUser()) {
+      
+    /*if (!this.user.isUser()) {
       this.navCtrl.setRoot(LoginPage);
     } else { 
       this.user.get();
